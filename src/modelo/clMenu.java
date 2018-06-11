@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vista;
+package modelo;
 
 /**
  *
  * @author farguello
  */
-public class acceso {
+public class clMenu {
     
 }
