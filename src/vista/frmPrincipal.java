@@ -100,6 +100,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnuitmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuitmSalirActionPerformed
