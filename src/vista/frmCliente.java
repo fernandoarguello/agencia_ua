@@ -54,6 +54,7 @@ public class frmCliente extends javax.swing.JFrame {
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 600));
@@ -205,6 +206,13 @@ public class frmCliente extends javax.swing.JFrame {
 
         btnBuscar.setText("Buscar");
 
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -219,12 +227,14 @@ public class frmCliente extends javax.swing.JFrame {
                         .addGap(246, 246, 246)
                         .addComponent(etiTituloCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
+                        .addGap(71, 71, 71)
                         .addComponent(btnModificar)
                         .addGap(51, 51, 51)
                         .addComponent(btnEliminar)
                         .addGap(64, 64, 64)
-                        .addComponent(btnBuscar)))
+                        .addComponent(btnBuscar)
+                        .addGap(61, 61, 61)
+                        .addComponent(btnSalir)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -238,7 +248,8 @@ public class frmCliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnModificar)
                     .addComponent(btnEliminar)
-                    .addComponent(btnBuscar))
+                    .addComponent(btnBuscar)
+                    .addComponent(btnSalir))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
@@ -256,6 +267,10 @@ public class frmCliente extends javax.swing.JFrame {
     private void cmbTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoDocumentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbTipoDocumentoActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -296,6 +311,7 @@ public class frmCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox<String> cmbCiudad;
     private javax.swing.JComboBox<String> cmbTipoDocumento;
     private javax.swing.JLabel etiApellidos;
