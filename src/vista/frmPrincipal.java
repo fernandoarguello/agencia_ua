@@ -28,10 +28,26 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         mnuPrincipal = new javax.swing.JMenuBar();
+        mnuMenu = new javax.swing.JMenu();
+        mnuCambioContrasenha = new javax.swing.JMenuItem();
+        mnuSalir = new javax.swing.JMenuItem();
         mnuMantenimiento = new javax.swing.JMenu();
         mnuGestion = new javax.swing.JMenu();
+        mnuConsultas = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menú Principal");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icn_agencia.png")).getImage());
+
+        mnuMenu.setText("Menú");
+
+        mnuCambioContrasenha.setText("Cambiar Contraseña");
+        mnuMenu.add(mnuCambioContrasenha);
+
+        mnuSalir.setText("Salir");
+        mnuMenu.add(mnuSalir);
+
+        mnuPrincipal.add(mnuMenu);
 
         mnuMantenimiento.setText("Mantenimiento");
         mnuPrincipal.add(mnuMantenimiento);
@@ -39,17 +55,20 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuGestion.setText("Gestión");
         mnuPrincipal.add(mnuGestion);
 
+        mnuConsultas.setText("Consultas");
+        mnuPrincipal.add(mnuConsultas);
+
         setJMenuBar(mnuPrincipal);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 650, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 579, Short.MAX_VALUE)
         );
 
         pack();
@@ -91,8 +110,12 @@ public class frmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem mnuCambioContrasenha;
+    private javax.swing.JMenu mnuConsultas;
     private javax.swing.JMenu mnuGestion;
     private javax.swing.JMenu mnuMantenimiento;
+    private javax.swing.JMenu mnuMenu;
     private javax.swing.JMenuBar mnuPrincipal;
+    private javax.swing.JMenuItem mnuSalir;
     // End of variables declaration//GEN-END:variables
 }
