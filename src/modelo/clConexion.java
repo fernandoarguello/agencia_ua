@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  *
  * @author agencia
  */
-public class conexion{
+public class clConexion{
     private final String base = "dbagencia";
     private final String user = "root";
     private final String password = "Inicial01";
@@ -31,7 +31,7 @@ public class conexion{
         } catch (SQLException e) {
             System.err.println(e);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(conexion.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(clConexion.class.getName()).log(Level.SEVERE, null, ex);
         }
         return con;
     }
