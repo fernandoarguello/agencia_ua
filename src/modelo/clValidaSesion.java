@@ -23,9 +23,10 @@ public class clValidaSesion extends clConexion{
             ps = cn.prepareStatement(sql);
             ps.setString(1, usuario.getIdUsuario());
             rs = ps.executeQuery();
+            
             if(rs.next()){
-                usuario.setNombre("Nombre");
-                usuario.setPassword("Password");
+                usuario.setNombre(rs.getString("Nombre"));
+                usuario.setPassword(rs.getString("Password"));
                 return true;
             }
             return false;

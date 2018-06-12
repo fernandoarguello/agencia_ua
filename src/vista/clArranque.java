@@ -7,7 +7,7 @@ package vista;
 import modelo.clUsuario;
 import modelo.clValidaSesion;
 import vista.frmAcceso;
-import controlador.clSesion;
+import controlador.ctrlSesion;
 import modelo.clUsuario;
 import modelo.clValidaSesion;
 /**
@@ -28,7 +28,7 @@ public class clArranque {
             clUsuario usuario = new clUsuario();
             clValidaSesion validaSesion = new clValidaSesion();
             frmAcceso acceso = new frmAcceso();
-            clSesion sesion = new clSesion(validaSesion, usuario, acceso);
+            ctrlSesion sesion = new ctrlSesion(validaSesion, usuario, acceso);
             acceso.setVisible(true);
         }
     
