@@ -18,12 +18,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
-public class clSesion implements ActionListener{
+public class ctrlSesion implements ActionListener{
     public clValidaSesion validaSesion;
     public clUsuario usuario;
     public frmAcceso acceso;
     public frmPrincipal principal;
-    public clSesion(clValidaSesion validaSesion, clUsuario usuario, frmAcceso acceso){
+    public ctrlSesion(clValidaSesion validaSesion, clUsuario usuario, frmAcceso acceso){
         this.validaSesion = validaSesion;
         this.usuario = usuario;
         this.acceso = acceso;
@@ -33,10 +33,11 @@ public class clSesion implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == acceso.btnAceptar){
-            usuario.setNombre(acceso.txtUsuario.getText());
+            usuario.setIdUsuario(acceso.txtUsuario.getText());
             if(validaSesion.buscar(usuario)){
                 String psw = acceso.pswContrasenha.getText();
-                if(psw == usuario.getPassword().toString()){
+                if(psw.toString().equals(usuario.getPassword().toString())){
+                    acceso.dispose();
                     frmPrincipal pantPrincipal = new frmPrincipal();
                     pantPrincipal.setVisible(true);
                 }else{
@@ -44,7 +45,7 @@ public class clSesion implements ActionListener{
                 }
             }
         }
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
