@@ -14,7 +14,7 @@ import java.sql.Date;
 public class clCliente {
     private int idCliente;
     private String documento;
-    private String TipodDocumento;
+    private String TipoDocumento;
     private String nombres;
     private String apellidos;
     private Date FechaNacimiento;
@@ -40,12 +40,12 @@ public class clCliente {
         this.documento = documento;
     }
 
-    public String getTipodDocumento() {
-        return TipodDocumento;
+    public String getTipoDocumento() {
+        return TipoDocumento;
     }
 
-    public void setTipodDocumento(String TipodDocumento) {
-        this.TipodDocumento = TipodDocumento;
+    public void setTipoDocumento(String TipoDocumento) {
+        this.TipoDocumento = TipoDocumento;
     }
 
     public String getNombres() {
