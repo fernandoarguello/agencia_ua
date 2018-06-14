@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package vista;
-
+import controlador.CtrlclCliente;
 /**
  *
  * @author Eduardo Giménez
@@ -55,6 +55,8 @@ public class frmCliente extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        btnGrabar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 600));
@@ -131,7 +133,7 @@ public class frmCliente extends javax.swing.JFrame {
                     .addComponent(etiFechaNacimiento)
                     .addComponent(etiTelefono)
                     .addComponent(etiEmail))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(pnlTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(txtNombres)
@@ -201,6 +203,11 @@ public class frmCliente extends javax.swing.JFrame {
         etiTituloCliente.setText("Cliente");
 
         btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
 
@@ -213,29 +220,36 @@ public class frmCliente extends javax.swing.JFrame {
             }
         });
 
+        btnGrabar.setText("Grabar");
+
+        btnLimpiar.setText("Limpiar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(pnlTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(283, 283, 283))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(246, 246, 246)
-                        .addComponent(etiTituloCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(btnModificar)
-                        .addGap(51, 51, 51)
-                        .addComponent(btnEliminar)
-                        .addGap(64, 64, 64)
-                        .addComponent(btnBuscar)
-                        .addGap(61, 61, 61)
-                        .addComponent(btnSalir)))
+                .addGap(246, 246, 246)
+                .addComponent(etiTituloCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(btnGrabar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnModificar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLimpiar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSalir)))
+                .addGap(273, 273, 273))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,8 +263,10 @@ public class frmCliente extends javax.swing.JFrame {
                     .addComponent(btnModificar)
                     .addComponent(btnEliminar)
                     .addComponent(btnBuscar)
+                    .addComponent(btnGrabar)
+                    .addComponent(btnLimpiar)
                     .addComponent(btnSalir))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
 
         pack();
@@ -271,6 +287,10 @@ public class frmCliente extends javax.swing.JFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -306,14 +326,16 @@ public class frmCliente extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnModificar;
-    private javax.swing.JButton btnSalir;
-    private javax.swing.JComboBox<String> cmbCiudad;
-    private javax.swing.JComboBox<String> cmbTipoDocumento;
+    public javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnGrabar;
+    public javax.swing.JButton btnLimpiar;
+    public javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnSalir;
+    public javax.swing.JComboBox<String> cmbCiudad;
+    public javax.swing.JComboBox<String> cmbTipoDocumento;
     private javax.swing.JLabel etiApellidos;
     private javax.swing.JLabel etiCiudad;
     private javax.swing.JLabel etiDireccion;
@@ -327,14 +349,15 @@ public class frmCliente extends javax.swing.JFrame {
     private javax.swing.JLabel etiTipoDocumento;
     private javax.swing.JLabel etiTituloCliente;
     private javax.swing.JPanel pnlTexto;
-    private javax.swing.JTextField txtApellidos;
-    private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtDocumento;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtFechaNacimiento;
-    private javax.swing.JTextField txtIdCliente;
-    private javax.swing.JTextField txtNombres;
-    private javax.swing.JTextField txtPais;
-    private javax.swing.JTextField txtTelefono;
+    public javax.swing.JTextField txtApellidos;
+    public javax.swing.JTextField txtDireccion;
+    public javax.swing.JTextField txtDocumento;
+    public javax.swing.JTextField txtEmail;
+    public javax.swing.JTextField txtFechaNacimiento;
+    public javax.swing.JTextField txtIdCliente;
+    public javax.swing.JTextField txtNombres;
+    public javax.swing.JTextField txtPais;
+    public javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
+
 }
