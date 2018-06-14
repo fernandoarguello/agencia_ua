@@ -17,8 +17,8 @@ import java.util.logging.Logger;
  */
 public class clConexion{
     private final String base = "dbAgencia";
-    private final String user = "root";
-    private final String password = "inicial01";
+    private final String user = "agencia";
+    private final String password = "Agencia01";
     private final String url = "jdbc:mysql://localhost:3306/" + base;
     private Connection con = null;
 

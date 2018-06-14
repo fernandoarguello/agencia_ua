@@ -30,6 +30,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuPrincipal = new javax.swing.JMenuBar();
         mnuMenu = new javax.swing.JMenu();
         mnuitmCambioContrasenha = new javax.swing.JMenuItem();
+        sprSeparador1 = new javax.swing.JPopupMenu.Separator();
         mnuitmSalir = new javax.swing.JMenuItem();
         mnuMantenimiento = new javax.swing.JMenu();
         mnuitmCliente = new javax.swing.JMenuItem();
@@ -47,6 +48,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         mnuitmCambioContrasenha.setText("Cambiar Contraseña");
         mnuMenu.add(mnuitmCambioContrasenha);
+        mnuMenu.add(sprSeparador1);
 
         mnuitmSalir.setText("Salir");
         mnuitmSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -154,5 +156,6 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuitmCliente;
     private javax.swing.JMenuItem mnuitmPais;
     private javax.swing.JMenuItem mnuitmSalir;
+    private javax.swing.JPopupMenu.Separator sprSeparador1;
     // End of variables declaration//GEN-END:variables
 }
