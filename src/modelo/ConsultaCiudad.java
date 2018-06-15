@@ -89,7 +89,7 @@ public class ConsultaCiudad extends clConexion{
         ResultSet rs = null;
         java.sql.Connection con = getConexion();
 
-        String sql = "SELECT * FROM ciudad WHERE codigo=? ";
+        String sql = "SELECT * FROM ciudad WHERE idCiudad=? ";
 
         try {
             ps = con.prepareStatement(sql);

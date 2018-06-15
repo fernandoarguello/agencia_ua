@@ -14,17 +14,16 @@ import java.sql.SQLException;
  *
  * @author claud
  */
-public class ConsultaPais extends clConexion{
-    public boolean registrar(clPais pais) {
+public class ConsultaCategoria extends clConexion{
+    
+   public boolean registrar(clCategoria cat) {
         PreparedStatement ps = null;
         Connection con = getConexion();
-        String sql = "INSERT INTO Pais (idPais, idContinente, descripcion , nacionalidad) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO Categoria (idCategoria,descripcion) VALUES(?,?)";
          try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, pais.getIdPais());
-            ps.setInt(2, pais.getIdContinente());
-            ps.setString(3, pais.getDescripcion());
-            ps.setString(4, pais.getNacionalidad());
+            ps.setInt(1, cat.getIdCategoria());
+            ps.setString(3, cat.getDescripcion());
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -40,18 +39,16 @@ public class ConsultaPais extends clConexion{
     }
     
 
- public boolean modificar(clPais pais) {
+ public boolean modificar(clCategoria cat) {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE pais SET idPais=?, idContinente=?, descripcion=?, nacionalidad=? WHERE id=? ";
+        String sql = "UPDATE categoria SET idCategoria=?,descripcion=?,WHERE id=? ";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, pais.getIdPais());
-            ps.setInt(2, pais.getIdContinente());
-            ps.setString(3, pais.getDescripcion());
-            ps.setString(4, pais.getNacionalidad());
+            ps.setInt(1, cat.getIdCategoria());
+            ps.setString(2, cat.getDescripcion());
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -65,15 +62,15 @@ public class ConsultaPais extends clConexion{
             }
         }
     }
- public boolean eliminar(clPais pais) {
+ public boolean eliminar(clCategoria cat) {
         PreparedStatement ps = null;
         java.sql.Connection con = getConexion();
 
-        String sql = "DELETE FROM pais WHERE id=? ";
+        String sql = "DELETE FROM categoria WHERE id=? ";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, pais.getIdPais());
+            ps.setInt(1, cat.getIdCategoria());
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -87,23 +84,21 @@ public class ConsultaPais extends clConexion{
             }
         }
     }
- public boolean buscar(clPais pais) {
+ public boolean buscar(clCategoria cat) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         java.sql.Connection con = getConexion();
 
-        String sql = "SELECT * FROM pais WHERE idPais=? ";
+        String sql = "SELECT * FROM categoria WHERE idCategoria=? ";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, pais.getIdPais());
+            ps.setInt(1, cat.getIdCategoria());
             rs = ps.executeQuery();
 
             if (rs.next()) {
-                pais.setIdPais(Integer.parseInt(rs.getString("pais")));
-                pais.setIdContinente(rs.getInt("continente"));
-                pais.setDescripcion(rs.getString("descripcion"));
-                pais.setNacionalidad(rs.getString("nacionalidad"));
+                cat.setIdCategoria(Integer.parseInt(rs.getString("categoria")));
+                cat.setDescripcion(rs.getString("descripcion"));
                 return true;
             }
             return false;
@@ -118,4 +113,5 @@ public class ConsultaPais extends clConexion{
             }
         }
     }
-}
+}  
+
