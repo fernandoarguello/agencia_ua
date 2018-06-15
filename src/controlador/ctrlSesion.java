@@ -9,6 +9,7 @@ package controlador;
  *
  * @author farguello
  */
+import controlador.CtrlMenuPrincipal;
 import modelo.clValidaSesion; //Gestor de la conexión
 import modelo.clUsuario; //Constructor
 import vista.frmAcceso; //Formulario para Acceso
@@ -39,6 +40,7 @@ public class ctrlSesion implements ActionListener{
                 if(psw.toString().equals(usuario.getPassword().toString())){
                     acceso.dispose();
                     frmPrincipal pantPrincipal = new frmPrincipal();
+                    CtrlMenuPrincipal menu = new CtrlMenuPrincipal(pantPrincipal);
                     pantPrincipal.setVisible(true);
                 }else{
                     JOptionPane.showMessageDialog(null, "Contrasenha Incorrecta.");

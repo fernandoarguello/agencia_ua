@@ -27,6 +27,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jdpPrincipal = new javax.swing.JDesktopPane();
         mnuPrincipal = new javax.swing.JMenuBar();
         mnuMenu = new javax.swing.JMenu();
         mnuitmCambioContrasenha = new javax.swing.JMenuItem();
@@ -36,12 +37,24 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuitmPais = new javax.swing.JMenuItem();
         mnuitmCiudad = new javax.swing.JMenuItem();
         mnuGestion = new javax.swing.JMenu();
+        jmiTratarPaquete = new javax.swing.JMenuItem();
         mnuConsultas = new javax.swing.JMenu();
         mnuAdministrar = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menú Principal");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/imagenes/icn_agencia.png")).getImage());
+
+        javax.swing.GroupLayout jdpPrincipalLayout = new javax.swing.GroupLayout(jdpPrincipal);
+        jdpPrincipal.setLayout(jdpPrincipalLayout);
+        jdpPrincipalLayout.setHorizontalGroup(
+            jdpPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1010, Short.MAX_VALUE)
+        );
+        jdpPrincipalLayout.setVerticalGroup(
+            jdpPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 654, Short.MAX_VALUE)
+        );
 
         mnuMenu.setText("Menú");
 
@@ -78,6 +91,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuPrincipal.add(mnuMantenimiento);
 
         mnuGestion.setText("Gestión");
+
+        jmiTratarPaquete.setText("Tratar Paquete");
+        mnuGestion.add(jmiTratarPaquete);
+
         mnuPrincipal.add(mnuGestion);
 
         mnuConsultas.setText("Consultas");
@@ -92,11 +109,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+            .addComponent(jdpPrincipal)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addComponent(jdpPrincipal)
         );
 
         pack();
@@ -143,12 +160,14 @@ public class frmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JDesktopPane jdpPrincipal;
+    public javax.swing.JMenuItem jmiTratarPaquete;
     private javax.swing.JMenu mnuAdministrar;
     private javax.swing.JMenu mnuConsultas;
-    private javax.swing.JMenu mnuGestion;
+    public javax.swing.JMenu mnuGestion;
     private javax.swing.JMenu mnuMantenimiento;
     private javax.swing.JMenu mnuMenu;
-    private javax.swing.JMenuBar mnuPrincipal;
+    public javax.swing.JMenuBar mnuPrincipal;
     private javax.swing.JMenuItem mnuitmCambioContrasenha;
     private javax.swing.JMenuItem mnuitmCiudad;
     private javax.swing.JMenuItem mnuitmCliente;
