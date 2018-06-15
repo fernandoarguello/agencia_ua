@@ -41,6 +41,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         jmiTratarPaquete = new javax.swing.JMenuItem();
         mnuConsultas = new javax.swing.JMenu();
         mnuAdministrar = new javax.swing.JMenu();
+        jmiUsuario = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menú Principal");
@@ -103,6 +104,10 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuPrincipal.add(mnuConsultas);
 
         mnuAdministrar.setText("Administrar");
+
+        jmiUsuario.setText("Gestionar Usuario");
+        mnuAdministrar.add(jmiUsuario);
+
         mnuPrincipal.add(mnuAdministrar);
 
         setJMenuBar(mnuPrincipal);
@@ -164,6 +169,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JDesktopPane jdpPrincipal;
     public javax.swing.JMenuItem jmiTratarPaquete;
+    public javax.swing.JMenuItem jmiUsuario;
     private javax.swing.JMenu mnuAdministrar;
     private javax.swing.JMenu mnuConsultas;
     public javax.swing.JMenu mnuGestion;
