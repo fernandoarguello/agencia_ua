@@ -4,15 +4,15 @@
  * and open the template in the editor.
  */
 package vista;
-import controlador.CtrlclCliente;
+
 /**
  *
  * @author Eduardo Giménez
  */
-public class frmCliente extends javax.swing.JFrame {
+public class frmCliente extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form frmCliente
+     * Creates new form frmCliente1
      */
     public frmCliente() {
         initComponents();
@@ -27,6 +27,7 @@ public class frmCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        etiTituloCliente = new javax.swing.JLabel();
         pnlTexto = new javax.swing.JPanel();
         etiNombres = new javax.swing.JLabel();
         etiApellidos = new javax.swing.JLabel();
@@ -50,16 +51,22 @@ public class frmCliente extends javax.swing.JFrame {
         txtApellidos = new javax.swing.JTextField();
         etiPais = new javax.swing.JLabel();
         txtPais = new javax.swing.JTextField();
-        etiTituloCliente = new javax.swing.JLabel();
+        btnGrabar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
-        btnGrabar = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 600));
+        setClosable(true);
+        setIconifiable(true);
+        setResizable(true);
+        setTitle("Cliente");
+        setFrameIcon(null);
+        setPreferredSize(new java.awt.Dimension(700, 650));
+
+        etiTituloCliente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        etiTituloCliente.setText("Cliente");
 
         etiNombres.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         etiNombres.setText("Nombres:");
@@ -199,8 +206,7 @@ public class frmCliente extends javax.swing.JFrame {
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
-        etiTituloCliente.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        etiTituloCliente.setText("Cliente");
+        btnGrabar.setText("Grabar");
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -213,16 +219,14 @@ public class frmCliente extends javax.swing.JFrame {
 
         btnBuscar.setText("Buscar");
 
+        btnLimpiar.setText("Limpiar");
+
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirActionPerformed(evt);
             }
         });
-
-        btnGrabar.setText("Grabar");
-
-        btnLimpiar.setText("Limpiar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -266,67 +270,31 @@ public class frmCliente extends javax.swing.JFrame {
                     .addComponent(btnGrabar)
                     .addComponent(btnLimpiar)
                     .addComponent(btnSalir))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidosActionPerformed
+    private void cmbTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoDocumentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtApellidosActionPerformed
+    }//GEN-LAST:event_cmbTipoDocumentoActionPerformed
 
     private void txtDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDocumentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDocumentoActionPerformed
 
-    private void cmbTipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoDocumentoActionPerformed
+    private void txtApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbTipoDocumentoActionPerformed
-
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        dispose();
-    }//GEN-LAST:event_btnSalirActionPerformed
+    }//GEN-LAST:event_txtApellidosActionPerformed
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnModificarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new frmCliente().setVisible(true);
-            }
-        });
-    }
-    
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnEliminar;
@@ -360,4 +328,7 @@ public class frmCliente extends javax.swing.JFrame {
     public javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 
+    public void setLocationRelativeTo(Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -178,7 +178,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     public javax.swing.JMenuBar mnuPrincipal;
     private javax.swing.JMenuItem mnuitmCambioContrasenha;
     private javax.swing.JMenuItem mnuitmCiudad;
-    private javax.swing.JMenuItem mnuitmCliente;
+    public javax.swing.JMenuItem mnuitmCliente;
     private javax.swing.JMenuItem mnuitmPais;
     private javax.swing.JMenuItem mnuitmSalir;
     private javax.swing.JPopupMenu.Separator sprSeparador1;
