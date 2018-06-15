@@ -84,6 +84,16 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Administrar"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jmiUsuario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Gestionar Usuario"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
