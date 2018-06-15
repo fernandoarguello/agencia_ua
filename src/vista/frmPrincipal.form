@@ -17,6 +17,8 @@
                 <Property name="text" type="java.lang.String" value="Cambiar Contrase&#xf1;a"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="sprSeparador1">
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuitmSalir">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salir"/>

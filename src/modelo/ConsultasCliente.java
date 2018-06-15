@@ -71,4 +71,65 @@ public class ConsultasCliente extends clConexion{
             }
         }
     }
+     
+     public boolean eliminar(clCliente cli) {
+        PreparedStatement ps = null;
+        Connection con = getConexion();
+
+        String sql = "DELETE FROM tblCliente WHERE idCliente=? ";
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, cli.getIdCliente());
+            ps.execute();
+            return true;
+        } catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    }
+    
+    public boolean buscar(clCliente cli) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection con = getConexion();
+
+        String sql = "SELECT * FROM producto WHERE idCliente=? ";
+
+        try {
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, cli.getIdCliente());
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                cli.setIdCliente(Integer.parseInt(rs.getString("idCliente")));
+                cli.setDocumento(rs.getString("documento"));
+                cli.setTipoDocumento(rs.getString("TipoDocumento"));
+                cli.setNombres(rs.getString("Nombres"));
+                cli.setApellidos(rs.getString("Apellidos"));
+                cli.setFechaNacimiento(rs.getDate("FechaNacimiento"));
+                cli.setDireccion(rs.getString("direccion"));
+                cli.setCiudad(rs.getInt("ciudad"));
+                cli.setTelefono(rs.getString("telefono"));
+                cli.setMail(rs.getString("mail"));
+                return true;
+            }
+            return false;
+        } catch (SQLException e) {
+            System.err.println(e);
+            return false;
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.err.println(e);
+            }
+        }
+    } 
 }
