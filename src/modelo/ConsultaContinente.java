@@ -9,31 +9,21 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 /**
  *
  * @author Eduardo Giménez
  */
-public class ConsultasCliente extends clConexion{
-    public boolean registrar (clCliente cli) {
+public class ConsultaContinente extends clConexion{
+    public boolean registrar (clContinente cont) {
         PreparedStatement ps = null;
         Connection con = getConexion();
         
+        String sql = "INSERT INTO tblcontinente (idContinente, descripcion) VALUES(?,?)";
         
-        String sql = "INSERT INTO tblCliente (idCliente, documento, TipoDocumento, Nombres, Apellidos, FechaNacimiento, direccion, ciudad, telefono, mail) VALUES(?,?,?,?,?,?,?,?,?,?)";
-
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, cli.getIdCliente());
-            ps.setString(2, cli.getDocumento());
-            ps.setString(3, cli.getTipoDocumento());
-            ps.setString(4, cli.getNombres());
-            ps.setString(5, cli.getApellidos());
-            ps.setDate(6, cli.getFechaNacimiento());
-            ps.setString(7, cli.getDireccion());
-            ps.setInt(8, cli.getCiudad());
-            ps.setString(9, cli.getTelefono());
-            ps.setString(10, cli.getMail());
+            ps.setInt(1, cont.getIdContinente());
+            ps.setString(2, cont.getDescripcion());
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -47,17 +37,16 @@ public class ConsultasCliente extends clConexion{
             }
         }
     }
-     public boolean modificar(clCliente cli) {
+    public boolean modificar(clContinente cont) {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE tblCliente SET documento=?, TipoDocumento=?, Nombres=? WHERE idCliente=? ";
+        String sql = "UPDATE tblcontinente SET idContinente=?, descripcion=?";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setString(1, cli.getDocumento());
-            ps.setString(2, cli.getTipoDocumento());
-            ps.setString(3, cli.getNombres());
+            ps.setInt(1, cont.getIdContinente());
+            ps.setString(2, cont.getDescripcion());
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -71,16 +60,15 @@ public class ConsultasCliente extends clConexion{
             }
         }
     }
-     
-     public boolean eliminar(clCliente cli) {
+    public boolean eliminar(clContinente cont) {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "DELETE FROM tblCliente WHERE idCliente=? ";
+        String sql = "DELETE FROM tblcontinente WHERE idContinente=? ";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, cli.getIdCliente());
+            ps.setInt(1, cont.getIdContinente());
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -94,30 +82,21 @@ public class ConsultasCliente extends clConexion{
             }
         }
     }
-    
-    public boolean buscar(clCliente cli) {
+    public boolean buscar(clContinente cont) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection con = getConexion();
 
-        String sql = "SELECT * FROM tblCliente WHERE idCliente=? ";
+        String sql = "SELECT * FROM tblcontinente WHERE idContinente=? ";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, cli.getIdCliente());
+            ps.setInt(1, cont.getIdContinente());
             rs = ps.executeQuery();
 
             if (rs.next()) {
-                cli.setIdCliente(Integer.parseInt(rs.getString("idCliente")));
-                cli.setDocumento(rs.getString("documento"));
-                cli.setTipoDocumento(rs.getString("TipoDocumento"));
-                cli.setNombres(rs.getString("Nombres"));
-                cli.setApellidos(rs.getString("Apellidos"));
-                cli.setFechaNacimiento(rs.getDate("FechaNacimiento"));
-                cli.setDireccion(rs.getString("direccion"));
-                cli.setCiudad(rs.getInt("ciudad"));
-                cli.setTelefono(rs.getString("telefono"));
-                cli.setMail(rs.getString("mail"));
+                cont.setIdContinente(Integer.parseInt(rs.getString("idContinente")));
+                cont.setDescripcion(rs.getString("descripcion"));
                 return true;
             }
             return false;
@@ -131,5 +110,6 @@ public class ConsultasCliente extends clConexion{
                 System.err.println(e);
             }
         }
-    } 
+    }
+    
 }
