@@ -49,6 +49,12 @@ public class frmAcceso extends javax.swing.JFrame {
         etiContrasenha.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         etiContrasenha.setText("Contraseña:");
 
+        pswContrasenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pswContrasenhaKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlPanelLayout = new javax.swing.GroupLayout(pnlPanel);
         pnlPanel.setLayout(pnlPanelLayout);
         pnlPanelLayout.setHorizontalGroup(
@@ -130,6 +136,14 @@ public class frmAcceso extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void pswContrasenhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pswContrasenhaKeyTyped
+        char t = evt.getKeyChar();
+        if(t == '\n')
+        {
+            btnAceptar.doClick();
+        }
+    }//GEN-LAST:event_pswContrasenhaKeyTyped
 
     /**
      * @param args the command line arguments

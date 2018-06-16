@@ -134,6 +134,9 @@
           </AuxValues>
         </Component>
         <Component class="javax.swing.JPasswordField" name="pswContrasenha">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="pswContrasenhaKeyTyped"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
