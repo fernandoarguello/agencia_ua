@@ -37,6 +37,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuitmCliente = new javax.swing.JMenuItem();
         mnuitmPais = new javax.swing.JMenuItem();
         mnuitmCiudad = new javax.swing.JMenuItem();
+        mnuitmContinente = new javax.swing.JMenuItem();
         mnuGestion = new javax.swing.JMenu();
         jmiTratarPaquete = new javax.swing.JMenuItem();
         mnuConsultas = new javax.swing.JMenu();
@@ -58,7 +59,9 @@ public class frmPrincipal extends javax.swing.JFrame {
             .addGap(0, 654, Short.MAX_VALUE)
         );
 
+        mnuMenu.setMnemonic('M');
         mnuMenu.setText("Menú");
+        mnuMenu.setToolTipText("");
 
         mnuitmCambioContrasenha.setText("Cambiar Contraseña");
         mnuMenu.add(mnuitmCambioContrasenha);
@@ -74,25 +77,36 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         mnuPrincipal.add(mnuMenu);
 
+        mnuMantenimiento.setMnemonic('N');
         mnuMantenimiento.setText("Mantenimiento");
 
+        mnuitmCliente.setMnemonic('C');
         mnuitmCliente.setText("Cliente");
         mnuitmCliente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         mnuitmCliente.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         mnuMantenimiento.add(mnuitmCliente);
 
+        mnuitmPais.setMnemonic('P');
         mnuitmPais.setText("País");
         mnuitmPais.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         mnuitmPais.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         mnuMantenimiento.add(mnuitmPais);
 
+        mnuitmCiudad.setMnemonic('U');
         mnuitmCiudad.setText("Ciudad");
         mnuitmCiudad.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         mnuitmCiudad.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         mnuMantenimiento.add(mnuitmCiudad);
 
+        mnuitmContinente.setMnemonic('N');
+        mnuitmContinente.setText("Continente");
+        mnuitmContinente.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        mnuitmContinente.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        mnuMantenimiento.add(mnuitmContinente);
+
         mnuPrincipal.add(mnuMantenimiento);
 
+        mnuGestion.setMnemonic('G');
         mnuGestion.setText("Gestión");
 
         jmiTratarPaquete.setText("Tratar Paquete");
@@ -100,9 +114,11 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         mnuPrincipal.add(mnuGestion);
 
+        mnuConsultas.setMnemonic('C');
         mnuConsultas.setText("Consultas");
         mnuPrincipal.add(mnuConsultas);
 
+        mnuAdministrar.setMnemonic('A');
         mnuAdministrar.setText("Administrar");
 
         jmiUsuario.setText("Gestionar Usuario");
@@ -179,6 +195,7 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuitmCambioContrasenha;
     private javax.swing.JMenuItem mnuitmCiudad;
     public javax.swing.JMenuItem mnuitmCliente;
+    public javax.swing.JMenuItem mnuitmContinente;
     private javax.swing.JMenuItem mnuitmPais;
     private javax.swing.JMenuItem mnuitmSalir;
     private javax.swing.JPopupMenu.Separator sprSeparador1;

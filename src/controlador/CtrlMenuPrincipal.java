@@ -8,6 +8,7 @@ import vista.frmPrincipal;
 import vista.frmPaquete;
 import vista.frmGestionUsuario;
 import vista.frmCliente;
+import vista.frmContinente;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -20,11 +21,13 @@ public class CtrlMenuPrincipal implements ActionListener{
     public frmPaquete paquete;
     public frmGestionUsuario GestionUsuario;
     public frmCliente cliente;
+    public frmContinente continente;
     public CtrlMenuPrincipal(frmPrincipal menu){
         this.MenuPrincipal = menu;
         this.MenuPrincipal.jmiTratarPaquete.addActionListener(this);
         this.MenuPrincipal.jmiUsuario.addActionListener(this);
         this.MenuPrincipal.mnuitmCliente.addActionListener(this);
+        this.MenuPrincipal.mnuitmContinente.addActionListener(this);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -40,6 +43,10 @@ public class CtrlMenuPrincipal implements ActionListener{
             frmCliente GesClie = new frmCliente();
             MenuPrincipal.jdpPrincipal.add(GesClie);
             GesClie.setVisible(true);
+        }else if(e.getSource()== MenuPrincipal.mnuitmContinente){
+            frmContinente GesCont = new frmContinente();
+            MenuPrincipal.jdpPrincipal.add(GesCont);
+            GesCont.setVisible(true);
         }
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
