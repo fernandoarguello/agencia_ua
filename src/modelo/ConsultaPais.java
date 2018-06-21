@@ -118,4 +118,35 @@ public class ConsultaPais extends clConexion{
             }
         }
     }
+    public ResultSet ListarPaises(){
+        PreparedStatement ps = null;
+        ResultSet         rs = null;
+        java.sql.Connection con = getConexion();
+        
+        String sql = "Select * from dbagencia.tblPais";
+        try{
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+/*            if(rs.next()){
+                lPais.setIdPais(Integer.parseInt(rs.get("idPais")));
+                lPais.setIdContinente(rs.getInt("idContinente"));
+                lPais.setDescripcion(rs.getString("descripcion"));
+                lPais.setNacionalidad(rs.getString("nacionalidad"));
+                return rs;
+            }*/
+            return rs;
+        }catch (SQLException e){
+            System.err.println(e);
+            return rs;
+        }
+ /*       }finally{
+            try{
+                con.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
+        }*/
+        
+    }
 }
+

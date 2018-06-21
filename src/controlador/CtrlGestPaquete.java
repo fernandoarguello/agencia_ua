@@ -11,21 +11,39 @@ package controlador;
  */
 import vista.frmPaquete;
 import modelo.ConsultasCliente;
+import modelo.ConsultaPais;
+import modelo.clPais;
 import modelo.clCliente;
 
+import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class CtrlGestPaquete implements ActionListener {
     private frmPaquete paquete;
     private ConsultasCliente ConClie;
     private clCliente clie;
-    public CtrlGestPaquete(frmPaquete paquete, ConsultasCliente ConClie, clCliente clie){
+    private ConsultaPais cPais;
+    private clPais pais;
+    public CtrlGestPaquete(frmPaquete paquete, ConsultasCliente ConClie, clCliente clie, ConsultaPais cPais, clPais Pais) throws SQLException{
         this.paquete = paquete;
         this.ConClie = ConClie;
         this.clie    = clie;
+        this.pais    = Pais;
+        this.cPais   = cPais;
         this.paquete.btnBuscar.addActionListener(this); //Escucha del botón de búsqueda de cliente.
+        
+        ResultSet rs = this.cPais.ListarPaises();
+        try{
+            while(rs.next()){
+                this.paquete.cmbPais.addItem(rs.getString("descripcion"));
+            }
+            this.cPais.ListarPaises().close();
+        }catch(SQLException e){
+            System.err.println(e);
+        }
     }
     @Override
     public void actionPerformed(ActionEvent e) {

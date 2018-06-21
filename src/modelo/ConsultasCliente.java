@@ -159,12 +159,6 @@ public class ConsultasCliente extends clConexion{
             return false;
         }catch(SQLException e){
             return false;
-        }finally{
-            try{
-                cn.close();
-            }catch(SQLException e){
-                System.err.println(e);
-            }
         }
     }
 }
