@@ -9,6 +9,9 @@ import vista.frmPaquete;
 import vista.frmGestionUsuario;
 import vista.frmCliente;
 import vista.frmContinente;
+import modelo.ConsultasCliente;
+import modelo.clCliente;
+import controlador.CtrlGestPaquete;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -32,8 +35,13 @@ public class CtrlMenuPrincipal implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == MenuPrincipal.jmiTratarPaquete){
+            
             frmPaquete paq = new frmPaquete();
+            ConsultasCliente ConClie = new ConsultasCliente();
+            clCliente Clie = new clCliente();
+            CtrlGestPaquete acciones = new CtrlGestPaquete(paq, ConClie, Clie);
             MenuPrincipal.jdpPrincipal.add(paq);
+            
             paq.setVisible(true);
         }else if(e.getSource() == MenuPrincipal.jmiUsuario){
             frmGestionUsuario GestUs = new frmGestionUsuario();

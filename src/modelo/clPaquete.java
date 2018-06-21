@@ -12,13 +12,13 @@ import java.util.Date;
  * @Tabla tblPaquete
  */
 public class clPaquete {
-    private int idPaquete;
-    private int idAtractivo;
-    private int idCliente;
-    private Date FechaSalida;
-    private Date FechaRetorno;
+    private int     idPaquete;
+    private int     idAtractivo;
+    private int     idCliente;
+    private Date    FechaSalida;
+    private Date    FechaRetorno;
     private Boolean estado;
-    private Double importe;
+    private Double  importe;
 //******************************************************************
 //Getters
 //******************************************************************    

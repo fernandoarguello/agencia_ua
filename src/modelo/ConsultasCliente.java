@@ -131,5 +131,40 @@ public class ConsultasCliente extends clConexion{
                 System.err.println(e);
             }
         }
-    } 
+    }
+//Método para recuperar el dato de cliente y completar el formulario de Gestión de Paquetes.    
+    public boolean BuscarClientePaquete(clCliente clie){
+        PreparedStatement ps = null;
+        ResultSet         rs = null;
+        Connection        cn = getConexion();
+        
+        String sql = "SELECT * FROM dbagencia.tblcliente where documento = ?";
+        try{
+            ps = cn.prepareStatement(sql);
+            ps.setString(1, clie.getDocumento());
+            rs = ps.executeQuery();
+            if(rs.next()){
+                clie.setIdCliente(Integer.parseInt(rs.getString("idCliente")));
+                clie.setDocumento(rs.getString("documento"));
+                clie.setTipoDocumento(rs.getString("TipoDocumento"));
+                clie.setNombres(rs.getString("Nombres"));
+                clie.setApellidos(rs.getString("Apellidos"));
+                clie.setFechaNacimiento(rs.getDate("FechaNacimiento"));
+                clie.setDireccion(rs.getString("direccion"));
+                clie.setCiudad(rs.getInt("ciudad"));
+                clie.setTelefono(rs.getString("telefono"));
+                clie.setMail(rs.getString("mail"));
+                return true;
+            }
+            return false;
+        }catch(SQLException e){
+            return false;
+        }finally{
+            try{
+                cn.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
+        }
+    }
 }
