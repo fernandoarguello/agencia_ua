@@ -50,7 +50,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
         txtNombres = new javax.swing.JTextField();
         txtApellidos = new javax.swing.JTextField();
         etiPais = new javax.swing.JLabel();
-        txtPais = new javax.swing.JTextField();
+        cmbPais = new javax.swing.JComboBox<>();
         btnGrabar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
@@ -101,14 +101,12 @@ public class frmCliente extends javax.swing.JInternalFrame {
         etiEmail.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         etiEmail.setText("E-mail:");
 
-        cmbTipoDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbTipoDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cédula", "RUC", "Pasaporte" }));
         cmbTipoDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbTipoDocumentoActionPerformed(evt);
             }
         });
-
-        cmbCiudad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         txtDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,11 +150,12 @@ public class frmCliente extends javax.swing.JInternalFrame {
                         .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cmbTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(cmbPais, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cmbCiudad, javax.swing.GroupLayout.Alignment.LEADING, 0, 114, Short.MAX_VALUE)))
                 .addGap(64, 64, 64))
         );
         pnlTextoLayout.setVerticalGroup(
@@ -188,8 +187,8 @@ public class frmCliente extends javax.swing.JInternalFrame {
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnlTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(etiPais))
+                    .addComponent(etiPais)
+                    .addComponent(cmbPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pnlTextoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmbCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,7 +251,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
                         .addComponent(btnLimpiar)
                         .addGap(18, 18, 18)
                         .addComponent(btnSalir)))
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addGap(0, 24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,6 +301,7 @@ public class frmCliente extends javax.swing.JInternalFrame {
     public javax.swing.JButton btnModificar;
     public javax.swing.JButton btnSalir;
     public javax.swing.JComboBox<String> cmbCiudad;
+    public javax.swing.JComboBox<String> cmbPais;
     public javax.swing.JComboBox<String> cmbTipoDocumento;
     private javax.swing.JLabel etiApellidos;
     private javax.swing.JLabel etiCiudad;
@@ -323,7 +323,6 @@ public class frmCliente extends javax.swing.JInternalFrame {
     public javax.swing.JTextField txtFechaNacimiento;
     public javax.swing.JTextField txtIdCliente;
     public javax.swing.JTextField txtNombres;
-    public javax.swing.JTextField txtPais;
     public javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 

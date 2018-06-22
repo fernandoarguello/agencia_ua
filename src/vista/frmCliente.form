@@ -50,7 +50,7 @@
                       <Component id="btnSalir" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -124,11 +124,13 @@
                           <Component id="cmbTipoDocumento" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                       </Group>
                       <Component id="txtDireccion" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
-                      <Component id="txtPais" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
-                      <Component id="cmbCiudad" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                       <Component id="txtFechaNacimiento" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                       <Component id="txtTelefono" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
                       <Component id="txtEmail" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="cmbPais" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cmbCiudad" alignment="0" pref="114" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
               </Group>
@@ -169,8 +171,8 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtPais" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="etiPais" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cmbPais" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -291,11 +293,10 @@
         <Component class="javax.swing.JComboBox" name="cmbTipoDocumento">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="3">
+                <StringItem index="0" value="C&#xe9;dula"/>
+                <StringItem index="1" value="RUC"/>
+                <StringItem index="2" value="Pasaporte"/>
               </StringArray>
             </Property>
           </Properties>
@@ -310,12 +311,7 @@
         <Component class="javax.swing.JComboBox" name="cmbCiudad">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -367,8 +363,14 @@
             <Property name="text" type="java.lang.String" value="Pa&#xed;s"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtPais">
+        <Component class="javax.swing.JComboBox" name="cmbPais">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
           <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>

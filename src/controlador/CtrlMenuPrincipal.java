@@ -49,6 +49,9 @@ public class CtrlMenuPrincipal implements ActionListener{
             GestUs.setVisible(true);
         }else if(e.getSource()== MenuPrincipal.mnuitmCliente){
             frmCliente GesClie = new frmCliente();
+            ConsultasCliente ConClie = new ConsultasCliente();
+            clCliente Clie = new clCliente();
+            CtrlclCliente clieC = new CtrlclCliente(Clie, ConClie, GesClie);
             MenuPrincipal.jdpPrincipal.add(GesClie);
             GesClie.setVisible(true);
         }else if(e.getSource()== MenuPrincipal.mnuitmContinente){
