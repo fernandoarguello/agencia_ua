@@ -11,9 +11,14 @@ import vista.frmCliente;
 import vista.frmContinente;
 import modelo.ConsultasCliente;
 import modelo.clCliente;
+import modelo.ConsultaPais;
+import modelo.clPais;
 import controlador.CtrlGestPaquete;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
@@ -39,7 +44,13 @@ public class CtrlMenuPrincipal implements ActionListener{
             frmPaquete paq = new frmPaquete();
             ConsultasCliente ConClie = new ConsultasCliente();
             clCliente Clie = new clCliente();
-            CtrlGestPaquete acciones = new CtrlGestPaquete(paq, ConClie, Clie);
+            ConsultaPais cPais = new ConsultaPais();
+            clPais Pais = new clPais();
+            try {
+                CtrlGestPaquete acciones = new CtrlGestPaquete(paq, ConClie, Clie, cPais, Pais);
+            } catch (SQLException ex) {
+                Logger.getLogger(CtrlMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
             MenuPrincipal.jdpPrincipal.add(paq);
             
             paq.setVisible(true);
