@@ -30,7 +30,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         jdpPrincipal = new javax.swing.JDesktopPane();
         mnuPrincipal = new javax.swing.JMenuBar();
         mnuMenu = new javax.swing.JMenu();
-        mnuitmCambioContrasenha = new javax.swing.JMenuItem();
         sprSeparador1 = new javax.swing.JPopupMenu.Separator();
         mnuitmSalir = new javax.swing.JMenuItem();
         mnuMantenimiento = new javax.swing.JMenu();
@@ -40,7 +39,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuitmContinente = new javax.swing.JMenuItem();
         mnuGestion = new javax.swing.JMenu();
         jmiTratarPaquete = new javax.swing.JMenuItem();
-        mnuConsultas = new javax.swing.JMenu();
         mnuAdministrar = new javax.swing.JMenu();
         jmiUsuario = new javax.swing.JMenuItem();
 
@@ -62,9 +60,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuMenu.setMnemonic('M');
         mnuMenu.setText("Menú");
         mnuMenu.setToolTipText("");
-
-        mnuitmCambioContrasenha.setText("Cambiar Contraseña");
-        mnuMenu.add(mnuitmCambioContrasenha);
         mnuMenu.add(sprSeparador1);
 
         mnuitmSalir.setText("Salir");
@@ -113,10 +108,6 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuGestion.add(jmiTratarPaquete);
 
         mnuPrincipal.add(mnuGestion);
-
-        mnuConsultas.setMnemonic('C');
-        mnuConsultas.setText("Consultas");
-        mnuPrincipal.add(mnuConsultas);
 
         mnuAdministrar.setMnemonic('A');
         mnuAdministrar.setText("Administrar");
@@ -187,12 +178,10 @@ public class frmPrincipal extends javax.swing.JFrame {
     public javax.swing.JMenuItem jmiTratarPaquete;
     public javax.swing.JMenuItem jmiUsuario;
     private javax.swing.JMenu mnuAdministrar;
-    private javax.swing.JMenu mnuConsultas;
     public javax.swing.JMenu mnuGestion;
     private javax.swing.JMenu mnuMantenimiento;
     private javax.swing.JMenu mnuMenu;
     public javax.swing.JMenuBar mnuPrincipal;
-    private javax.swing.JMenuItem mnuitmCambioContrasenha;
     private javax.swing.JMenuItem mnuitmCiudad;
     public javax.swing.JMenuItem mnuitmCliente;
     public javax.swing.JMenuItem mnuitmContinente;

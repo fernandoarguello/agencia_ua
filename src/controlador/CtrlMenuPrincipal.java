@@ -19,8 +19,13 @@ import controlador.CtrlGestPaquete;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import static java.util.Spliterators.iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ComboBox;
 import javax.swing.JOptionPane;
 /**
  *
@@ -52,11 +57,7 @@ public class CtrlMenuPrincipal implements ActionListener{
             clPais Pais = new clPais();
             ConsultaContinente Cont  = new ConsultaContinente();
             clContinente cCont = new clContinente();
-            try {
-                CtrlGestPaquete acciones = new CtrlGestPaquete(paq, ConClie, Clie, cPais, Pais, Cont, cCont);
-            } catch (SQLException ex) {
-                Logger.getLogger(CtrlMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            CtrlGestPaquete acciones = new CtrlGestPaquete(paq, ConClie, Clie, cPais, Pais, Cont, cCont);
             MenuPrincipal.jdpPrincipal.add(paq);
             
             paq.setVisible(true);

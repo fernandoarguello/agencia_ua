@@ -5,21 +5,16 @@
  */
 package vista;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import modelo.ConsultaPaquete;
-import modelo.clPais;
-
 /**
  *
  * @author farguello
  */
-public class frmPaquete extends javax.swing.JInternalFrame {
+public class frmPaquete_backup extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form frmPaquete1
      */
-    public frmPaquete() {
+    public frmPaquete_backup() {
         initComponents();
     }
 
@@ -32,6 +27,16 @@ public class frmPaquete extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        grtDetalle = new javax.swing.JTable();
+        btnModificar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnDetalle = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
+        txtTotal = new javax.swing.JTextField();
+        btnGuardar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         txtNombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -77,6 +82,78 @@ public class frmPaquete extends javax.swing.JInternalFrame {
             e1.printStackTrace();
         }
         setVisible(true);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        grtDetalle.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Paquete", "Fecha Salida", "Fecha Retorno", "Estado", "Importe"
+            }
+        ));
+        jScrollPane1.setViewportView(grtDetalle);
+
+        btnModificar.setText("Modificar");
+
+        btnEliminar.setText("Eliminar");
+
+        btnCancelar.setText("Cancelar");
+
+        btnDetalle.setText("Ver Detalle");
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel14.setText("Total:");
+
+        txtTotal.setEditable(false);
+        txtTotal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        btnGuardar.setText("Guardar");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnModificar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDetalle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnGuardar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                        .addComponent(jLabel14)
+                        .addGap(40, 40, 40)
+                        .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnModificar)
+                    .addComponent(btnEliminar)
+                    .addComponent(btnCancelar)
+                    .addComponent(btnDetalle)
+                    .addComponent(jLabel14)
+                    .addComponent(txtTotal)
+                    .addComponent(btnGuardar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -201,18 +278,6 @@ public class frmPaquete extends javax.swing.JInternalFrame {
 
         jLabel15.setText("Pais:");
 
-        cmbPais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paraguay" }));
-        cmbPais.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbPaisItemStateChanged(evt);
-            }
-        });
-        cmbPais.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbPaisActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -233,7 +298,7 @@ public class frmPaquete extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -282,10 +347,12 @@ public class frmPaquete extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jLabel1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -298,45 +365,33 @@ public class frmPaquete extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbPaisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbPaisItemStateChanged
-        // TODO add your handling code here:
-        if(cmbPais.getSelectedItem() != null){
-        this.cmbPaquete.removeAllItems();
-        clPais p = new clPais();
-        p.setDescripcion(cmbPais.getSelectedItem().toString());
-        ArrayList paquetes = new ArrayList();
-            ConsultaPaquete cpaquete = new ConsultaPaquete();
-            paquetes = cpaquete.ListarPaquete(p);
-//            paquetes = cpaquete.ListarPaquete(paquete.cmbPais.getSelectedItem().toString());
-            Iterator<String> n = paquetes.iterator();
-            while(n.hasNext()){
-                this.cmbPaquete.addItem(n.next());
-            }
-        }
-    }//GEN-LAST:event_cmbPaisItemStateChanged
-
-    private void cmbPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPaisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbPaisActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnDetalle;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnVerDetalle;
     public javax.swing.JComboBox<String> cmbPais;
     public javax.swing.JComboBox<String> cmbPaquete;
+    private javax.swing.JTable grtDetalle;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -347,7 +402,9 @@ public class frmPaquete extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JTextField txtApellido;
     public javax.swing.JTextField txtCorreo;
     public javax.swing.JTextField txtDireccion;
@@ -359,5 +416,6 @@ public class frmPaquete extends javax.swing.JInternalFrame {
     public javax.swing.JTextField txtRetorno;
     public javax.swing.JTextField txtTelefono;
     public javax.swing.JTextField txtTipoDocumento;
+    private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }
