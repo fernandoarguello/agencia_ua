@@ -51,7 +51,7 @@ public class CtrlGestPaquete implements ActionListener {
         this.paquete.cmbPais.addActionListener(this); //Escucha de la accion del combobox pais.
         this.paquete.cmbPaquete.addActionListener(this);
         this.paquete.cmbPais.removeAllItems();
-        this.paquete.cmbPaquete.removeAllItems();
+        
         cpaquete = new ConsultaPaquete();
         ArrayList paises = cPais.ListaPais();
         Iterator<String> i = paises.iterator();
@@ -60,7 +60,7 @@ public class CtrlGestPaquete implements ActionListener {
         }
         this.paquete.cmbPais.setSelectedItem(null);
         this.paquete.cmbPaquete.setSelectedItem(null);
-       
+        this.paquete.cmbPaquete.removeAllItems();
     }
     @Override
     public void actionPerformed(ActionEvent e) {
