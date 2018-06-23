@@ -39,7 +39,7 @@ public class CtrlclContinente implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource()== frm.btnBuscar){
+        if (e.getSource()== frm.btnInsertar){
             cont.setDescripcion(frm.txtDescripcion.getText());
                         
             if(contC.registrar(cont))
