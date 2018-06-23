@@ -4,18 +4,19 @@
  * and open the template in the editor.
  */
 package modelo;
-
-import java.sql.Connection;
+import com.mysql.jdbc.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 
 /**
  *
  * @author farguello
  */
-public class ConsultaPaquete {
+public class ConsultaPaquete extends clConexion{
     public boolean registrar (clPaquete paq) {
         PreparedStatement ps = null;
         Connection con = getConexion();
@@ -124,33 +125,47 @@ public class ConsultaPaquete {
         }
     }
 
-    private Connection getConexion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    private Connection getConexion() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     
 
-    public ResultSet ListarPaquete(String Pais){
-        PreparedStatement ps =null;
+    public ArrayList ListarPaquete(clPais p){
         ResultSet rs = null;
-        Connection con = getConexion();
-        String sql = "SELECT SINGLE * FROM dbagencia.tblpais where idPais = ?";
+        PreparedStatement ps = null;
+        
+        java.sql.Connection cn = getConexion();
+        
+        String sql = "SELECT * FROM dbagencia.tblpais WHERE descripcion like '" + p.getDescripcion() +"'";
+        ArrayList<String> modelo = new ArrayList();
         try{
-            ps = con.prepareStatement(sql);
-            ps.setString(2, Pais);
+            ps = cn.prepareStatement(sql);
+            
             rs = ps.executeQuery();
             if(rs.next()){
+                int idPais = rs.getInt("idPais");
                 ps = null;
                 rs = null;
-                sql = "SELECT SINGLE * FROM dbagencia.pais where idPais = ?";
-                ps = con.prepareStatement(sql);
-                ps.setInt(2, rs.getInt("idPais"));
+                sql = "SELECT * FROM dbagencia.tblAtractivo where idPais = ?";
+                ps = cn.prepareStatement(sql);
+                ps.setInt(1, idPais);
                 rs = ps.executeQuery();
+                while(rs.next()){
+                    String paquete = rs.getString("descripcion");
+                    modelo.add(paquete);
+                }
             }
         }catch(SQLException e){
             System.err.println(e);
+        }finally{
+            try{
+                cn.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
         }
-        return rs;
+        return modelo;
     }
     public boolean RegistrarPaquete(clPaquete paquete){
         PreparedStatement ps = null;

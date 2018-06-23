@@ -9,6 +9,7 @@ import com.mysql.jdbc.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -92,7 +93,7 @@ public class ConsultaPais extends clConexion{
         ResultSet rs = null;
         java.sql.Connection con = getConexion();
 
-        String sql = "SELECT * FROM pais WHERE idPais=? ";
+        String sql = "SELECT * FROM pais WHERE idPais =? ";
 
         try {
             ps = con.prepareStatement(sql);
@@ -133,6 +134,31 @@ public class ConsultaPais extends clConexion{
             return rs;
         }
         
+    }
+    public ArrayList ListaPais(){
+        ArrayList<String> lista = new ArrayList();
+        PreparedStatement ps = null;
+        ResultSet         rs = null;
+        java.sql.Connection con = getConexion();
+        
+        String sql = "Select * from dbagencia.tblPais";
+        try{
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                String paq = rs.getString("descripcion");
+                lista.add(paq);
+            }
+        }catch (SQLException e){
+            System.err.println(e);
+        }finally{
+            try{
+                con.close();
+            }catch(SQLException e){
+                System.out.println(e);
+            }
+        }
+        return lista;
     }
 }
 

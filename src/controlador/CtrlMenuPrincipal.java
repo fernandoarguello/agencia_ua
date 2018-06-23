@@ -17,8 +17,13 @@ import controlador.CtrlGestPaquete;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import static java.util.Spliterators.iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ComboBox;
 import javax.swing.JOptionPane;
 /**
  *
