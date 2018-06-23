@@ -44,6 +44,16 @@ public class CtrlclCliente implements ActionListener{
         }catch(SQLException e){
                     System.err.println(e);
         }
+        
+        ResultSet resB = conP.ObtieneIdPais();
+        try{
+            while (resB.next()){
+                frm.cmbCiudad.addItem(resB.getString("descripcion"));
+            }
+            this.conP.ObtieneIdPais().close();
+        }catch(SQLException e){
+                System.err.println(e);
+        }
             
     }
 

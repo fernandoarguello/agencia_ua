@@ -124,7 +124,7 @@ public class ConsultaPais extends clConexion{
         ResultSet    rs=null;
         java.sql.Connection con = getConexion();
         
-        String sql = "Select IdPais from dbagencia.tblPais where descripcion = ? ";
+        String sql = "Select idPais from dbagencia.tblPais where descripcion = ? ";
         try{
             ps = con.prepareCall(sql);
             rs = ps.executeQuery();
