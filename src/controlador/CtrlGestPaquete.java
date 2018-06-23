@@ -16,6 +16,8 @@ import modelo.ConsultaPais;
 import modelo.ConsultaPaquete;
 import modelo.clPais;
 import modelo.clCliente;
+import modelo.ConsultaContinente;
+import modelo.clContinente;
 
 import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
@@ -31,12 +33,16 @@ public class CtrlGestPaquete implements ActionListener {
     private clCliente clie;
     private ConsultaPais cPais;
     private clPais pais;
-    public CtrlGestPaquete(frmPaquete paquete, ConsultasCliente ConClie, clCliente clie, ConsultaPais cPais, clPais Pais) throws SQLException{
+    private ConsultaContinente Cont;
+    private clContinente cCont;
+    public CtrlGestPaquete(frmPaquete paquete, ConsultasCliente ConClie, clCliente clie, ConsultaPais cPais, clPais Pais, ConsultaContinente Cont, clContinente cCont) throws SQLException{
         this.paquete = paquete;
         this.ConClie = ConClie;
         this.clie    = clie;
         this.pais    = Pais;
         this.cPais   = cPais;
+        this.Cont    = Cont;
+        this.cCont   = cCont;
         this.paquete.btnBuscar.addActionListener(this); //Escucha del botón de búsqueda de cliente.
         this.paquete.cmbPais.addActionListener(this); //Escucha de la accion del combobox pais.
         ResultSet rs = this.cPais.ListarPaises();
