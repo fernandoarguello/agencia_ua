@@ -18,7 +18,7 @@ public class ConsultaContinente extends clConexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
         
-        String sql = "INSERT INTO tblcontinente (idContinente, descripcion) VALUES(?,?)";
+        String sql = "INSERT INTO dbagencia.tblContinente (idContinente, descripcion) VALUES(?,?)";
         
         try {
             ps = con.prepareStatement(sql);
@@ -41,7 +41,7 @@ public class ConsultaContinente extends clConexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE tblcontinente SET idContinente=?, descripcion=?";
+        String sql = "UPDATE dbagencia.tblContinente SET idContinente=?, descripcion=?";
 
         try {
             ps = con.prepareStatement(sql);
@@ -64,7 +64,7 @@ public class ConsultaContinente extends clConexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "DELETE FROM tblcontinente WHERE idContinente=? ";
+        String sql = "DELETE FROM dbagencia.tblContinente WHERE idContinente=? ";
 
         try {
             ps = con.prepareStatement(sql);
@@ -87,7 +87,7 @@ public class ConsultaContinente extends clConexion{
         ResultSet rs = null;
         Connection con = getConexion();
 
-        String sql = "SELECT * FROM tblcontinente WHERE idContinente=? ";
+        String sql = "SELECT * FROM dbagencia.tblContinente WHERE idContinente=? ";
 
         try {
             ps = con.prepareStatement(sql);

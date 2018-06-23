@@ -15,12 +15,12 @@ import java.sql.SQLException;
  *
  * @author claud
  */
-public class ConsultaAtractivo {
+public class ConsultaAtractivo extends clConexion{
    public boolean registrar (clAtractivo atr) {
         PreparedStatement ps = null;
         Connection con = getConexion();
         
-        String sql = "INSERT INTO Paquete (idAtractivo, idPais,idCiudad,idCategoria,descripcion,preico,hora_inicio,hora_fin) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO dbagencia.tblAtractivo (idAtractivo, idPais,idCiudad,idCategoria,descripcion,preico,hora_inicio,hora_fin) VALUES(?,?,?,?,?,?,?)";
         
         try {
             ps = con.prepareStatement(sql);
@@ -49,7 +49,7 @@ public class ConsultaAtractivo {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE tblAtractivo SET idAtractivo=?, idPais=?,idCiudad=?,idCategoria=?,descripcion=?,preico=?,hora_inicio=?,hora_fin=?";
+        String sql = "UPDATE dbagencia.tblAtractivo SET idAtractivo=?, idPais=?,idCiudad=?,idCategoria=?,descripcion=?,preico=?,hora_inicio=?,hora_fin=?";
 
         try {
              ps = con.prepareStatement(sql);
@@ -78,7 +78,7 @@ public class ConsultaAtractivo {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "DELETE FROM tblAtractivo WHERE idAtractivo=? ";
+        String sql = "DELETE FROM dbagencia.tblAtractivo WHERE idAtractivo=? ";
 
         try {
             ps = con.prepareStatement(sql);
@@ -101,7 +101,7 @@ public class ConsultaAtractivo {
         ResultSet rs = null;
         Connection con = getConexion();
 
-        String sql = "SELECT * FROM tblAtractivo WHERE idAtractivo=? ";
+        String sql = "SELECT * FROM dbagencia.tblAtractivo WHERE idAtractivo=? ";
 
         try {
             ps = con.prepareStatement(sql);
@@ -133,9 +133,9 @@ public class ConsultaAtractivo {
         }
     }
 
-    private Connection getConexion() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    private Connection getConexion() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     
  

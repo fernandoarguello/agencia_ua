@@ -18,7 +18,7 @@ public class ConsultaPais extends clConexion{
     public boolean registrar(clPais pais) {
         PreparedStatement ps = null;
         Connection con = getConexion();
-        String sql = "INSERT INTO Pais (idPais, idContinente, descripcion , nacionalidad) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO dbagencia.tblPais (idPais, idContinente, descripcion , nacionalidad) VALUES(?,?,?,?)";
          try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, pais.getIdPais());
@@ -44,7 +44,7 @@ public class ConsultaPais extends clConexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE pais SET idPais=?, idContinente=?, descripcion=?, nacionalidad=? WHERE id=? ";
+        String sql = "UPDATE dbagencia.tblpais SET idPais=?, idContinente=?, descripcion=?, nacionalidad=? WHERE id=? ";
 
         try {
             ps = con.prepareStatement(sql);
@@ -69,7 +69,7 @@ public class ConsultaPais extends clConexion{
         PreparedStatement ps = null;
         java.sql.Connection con = getConexion();
 
-        String sql = "DELETE FROM pais WHERE id=? ";
+        String sql = "DELETE FROM dbagencia.tblpais WHERE id=? ";
 
         try {
             ps = con.prepareStatement(sql);
@@ -92,7 +92,7 @@ public class ConsultaPais extends clConexion{
         ResultSet rs = null;
         java.sql.Connection con = getConexion();
 
-        String sql = "SELECT * FROM pais WHERE idPais=? ";
+        String sql = "SELECT * FROM dbagencia.tblpais WHERE idPais=? ";
 
         try {
             ps = con.prepareStatement(sql);
