@@ -33,6 +33,7 @@ public class CtrlMenuPrincipal implements ActionListener{
     public frmCliente cliente;
     public frmContinente continente;
     public clCliente cli;
+    public clContinente cCont;
     public CtrlMenuPrincipal(frmPrincipal menu){
         this.MenuPrincipal = menu;
         this.MenuPrincipal.jmiTratarPaquete.addActionListener(this);
@@ -79,6 +80,11 @@ public class CtrlMenuPrincipal implements ActionListener{
             GesClie.setVisible(true);
         }else if(e.getSource()== MenuPrincipal.mnuitmContinente){
             frmContinente GesCont = new frmContinente();
+            ConsultaContinente ConCont = new ConsultaContinente();
+            clContinente Cont = new clContinente();
+            
+            
+            CtrlclContinente contC = new CtrlclContinente(Cont, ConCont, GesCont);
             MenuPrincipal.jdpPrincipal.add(GesCont);
             GesCont.setVisible(true);
         }
