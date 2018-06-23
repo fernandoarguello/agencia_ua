@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -192,5 +193,32 @@ public class ConsultaPaquete extends clConexion{
                 System.err.println(e);
             }
         }
+    }
+    public String ObtCliente(clCliente c){
+        String doc = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        com.mysql.jdbc.Connection con = getConexion();
+        String sql = "SELECT * FROM dbagencia.tblcliente where documento = ?";
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setString(1, c.getDocumento());
+            rs = ps.executeQuery();
+            if(rs.next()){
+               doc = rs.getString("documento");
+            }else{
+                JOptionPane.showMessageDialog(null, "No se encuentra el registro");
+            }
+        }catch(SQLException e){
+            System.err.println(e);
+            
+        }finally{
+            try{
+                con.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
+        }
+        return doc;
     }
 }
