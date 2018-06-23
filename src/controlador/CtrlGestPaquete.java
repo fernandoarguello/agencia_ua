@@ -22,9 +22,12 @@ import modelo.clContinente;
 import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 public class CtrlGestPaquete implements ActionListener {
@@ -35,7 +38,8 @@ public class CtrlGestPaquete implements ActionListener {
     private clPais pais;
     private ConsultaContinente Cont;
     private clContinente cCont;
-    public CtrlGestPaquete(frmPaquete paquete, ConsultasCliente ConClie, clCliente clie, ConsultaPais cPais, clPais Pais, ConsultaContinente Cont, clContinente cCont) throws SQLException{
+    private ConsultaPaquete cpaquete;
+    public CtrlGestPaquete(frmPaquete paquete, ConsultasCliente ConClie, clCliente clie, ConsultaPais cPais, clPais Pais, ConsultaContinente Cont, clContinente cCont) {
         this.paquete = paquete;
         this.ConClie = ConClie;
         this.clie    = clie;
@@ -45,15 +49,18 @@ public class CtrlGestPaquete implements ActionListener {
         this.cCont   = cCont;
         this.paquete.btnBuscar.addActionListener(this); //Escucha del botón de búsqueda de cliente.
         this.paquete.cmbPais.addActionListener(this); //Escucha de la accion del combobox pais.
-        ResultSet rs = this.cPais.ListarPaises();
-        try{
-            while(rs.next()){
-                this.paquete.cmbPais.addItem(rs.getString("descripcion"));
-            }
-            this.cPais.ListarPaises().close();
-        }catch(SQLException e){
-            System.err.println(e);
+        this.paquete.cmbPaquete.addActionListener(this);
+        this.paquete.cmbPais.removeAllItems();
+        
+        cpaquete = new ConsultaPaquete();
+        ArrayList paises = cPais.ListaPais();
+        Iterator<String> i = paises.iterator();
+        while(i.hasNext()){
+            paquete.cmbPais.addItem(i.next());
         }
+        this.paquete.cmbPais.setSelectedItem(null);
+        this.paquete.cmbPaquete.setSelectedItem(null);
+        this.paquete.cmbPaquete.removeAllItems();
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -70,21 +77,21 @@ public class CtrlGestPaquete implements ActionListener {
             }else {
                 JOptionPane.showMessageDialog(null, "No se encontro registro");
             }
-        }else if(e.getSource() == paquete.btnAgregar){
-            ConsultaPaquete ConPaq = new ConsultaPaquete();
-            ResultSet rs = ConPaq.ListarPaquete(paquete.cmbPais.getSelectedItem().toString());
-            try {
-                while(rs.next()){
-                    paquete.cmbPaquete.addItem(rs.getString("descripcion"));
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(CtrlGestPaquete.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
         }else if(e.getSource() == paquete.cmbPais){
+//            this.paquete.cmbPaquete.removeAllItems();
+//            ArrayList paquetes = new ArrayList();
+//            clPais p = new clPais();
+//            p.setDescripcion("Paraguay");
+//            paquetes = cpaquete.ListarPaquete(p);
+//            Iterator<String> n = paquetes.iterator();
+//            while(n.hasNext()){
+//                paquete.cmbPaquete.addItem(n.next());
+//            }
+        }else if(e.getSource() == paquete.cmbPaquete){
             
         }
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
+
