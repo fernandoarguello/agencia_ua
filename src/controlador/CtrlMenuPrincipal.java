@@ -13,6 +13,8 @@ import modelo.ConsultasCliente;
 import modelo.clCliente;
 import modelo.ConsultaPais;
 import modelo.clPais;
+import modelo.ConsultaContinente;
+import modelo.clContinente;
 import controlador.CtrlGestPaquete;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -47,8 +49,10 @@ public class CtrlMenuPrincipal implements ActionListener{
             clCliente Clie = new clCliente();
             ConsultaPais cPais = new ConsultaPais();
             clPais Pais = new clPais();
+            ConsultaContinente Cont  = new ConsultaContinente();
+            clContinente cCont = new clContinente();
             try {
-                CtrlGestPaquete acciones = new CtrlGestPaquete(paq, ConClie, Clie, cPais, Pais);
+                CtrlGestPaquete acciones = new CtrlGestPaquete(paq, ConClie, Clie, cPais, Pais, Cont, cCont);
             } catch (SQLException ex) {
                 Logger.getLogger(CtrlMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
             }
