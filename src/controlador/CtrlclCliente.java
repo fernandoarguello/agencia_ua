@@ -44,7 +44,7 @@ public class CtrlclCliente implements ActionListener{
         }catch(SQLException e){
                     System.err.println(e);
         }
-        
+        /*
         ResultSet resB = conP.ObtieneIdPais();
         try{
             while (resB.next()){
@@ -54,7 +54,7 @@ public class CtrlclCliente implements ActionListener{
         }catch(SQLException e){
                 System.err.println(e);
         }
-            
+        */    
     }
 
     
