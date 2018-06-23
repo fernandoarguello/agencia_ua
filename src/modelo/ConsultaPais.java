@@ -24,7 +24,7 @@ public class ConsultaPais extends clConexion{
             ps.setInt(1, pais.getIdPais());
             ps.setInt(2, pais.getIdContinente());
             ps.setString(3, pais.getDescripcion());
-            ps.setString(4, pais.getNacionalidad());
+            ps.setString( 4, pais.getNacionalidad());
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -127,25 +127,11 @@ public class ConsultaPais extends clConexion{
         try{
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
-/*            if(rs.next()){
-                lPais.setIdPais(Integer.parseInt(rs.get("idPais")));
-                lPais.setIdContinente(rs.getInt("idContinente"));
-                lPais.setDescripcion(rs.getString("descripcion"));
-                lPais.setNacionalidad(rs.getString("nacionalidad"));
-                return rs;
-            }*/
             return rs;
         }catch (SQLException e){
             System.err.println(e);
             return rs;
         }
- /*       }finally{
-            try{
-                con.close();
-            }catch(SQLException e){
-                System.err.println(e);
-            }
-        }*/
         
     }
 }
