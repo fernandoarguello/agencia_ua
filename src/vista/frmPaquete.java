@@ -60,8 +60,7 @@ public class frmPaquete extends javax.swing.JInternalFrame {
         txtRetorno = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txtImporte = new javax.swing.JTextField();
-        btnAgregar = new javax.swing.JButton();
-        btnVerDetalle = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         cmbPais = new javax.swing.JComboBox<>();
 
@@ -195,9 +194,7 @@ public class frmPaquete extends javax.swing.JInternalFrame {
 
         jLabel13.setText("Importe");
 
-        btnAgregar.setText("Guardar");
-
-        btnVerDetalle.setText("Ver Detalle");
+        btnGuardar.setText("Guardar");
 
         jLabel15.setText("Pais:");
 
@@ -221,9 +218,7 @@ public class frmPaquete extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnVerDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -269,9 +264,7 @@ public class frmPaquete extends javax.swing.JInternalFrame {
                     .addComponent(txtImporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregar)
-                    .addComponent(btnVerDetalle))
+                .addComponent(btnGuardar)
                 .addGap(21, 21, 21))
         );
 
@@ -327,9 +320,8 @@ public class frmPaquete extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnVerDetalle;
+    public javax.swing.JButton btnGuardar;
     public javax.swing.JComboBox<String> cmbPais;
     public javax.swing.JComboBox<String> cmbPaquete;
     private javax.swing.JLabel jLabel1;

@@ -22,6 +22,7 @@ import modelo.clContinente;
 import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.logging.Level;
@@ -29,6 +30,7 @@ import java.util.logging.Logger;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import modelo.clPaquete;
 
 public class CtrlGestPaquete implements ActionListener {
     private frmPaquete paquete;
@@ -89,8 +91,53 @@ public class CtrlGestPaquete implements ActionListener {
 //            }
         }else if(e.getSource() == paquete.cmbPaquete){
             
+        }else if(e.getSource() == paquete.btnGuardar){
+            validar();
+            clPaquete p = new clPaquete();
+            
+            p.setIdCliente(0);
+            p.setEstado(Boolean.FALSE);
+            p.setIdAtractivo(0);
+            p.setFechaSalida(Date.valueOf(paquete.txtFechaSalida.getText()));
+            p.setFechaRetorno(Date.valueOf(paquete.txtFechaSalida.getText()));
+            p.setImporte(Double.parseDouble(paquete.txtImporte.getText()));
+            cpaquete.RegistrarPaquete(p);
+            limpiar();
         }
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    private void validar(){
+        if(paquete.txtDocumento.getText() == null){
+            JOptionPane.showMessageDialog(null, "Campo Documento Vacio");
+        }
+        if(paquete.cmbPais.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "Campo Pais Vacio");
+        }
+        if(paquete.cmbPaquete.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "Campo Paquete Vacio");
+        }
+        if(paquete.txtNombre.getSelectedText() == null){
+            JOptionPane.showMessageDialog(null, "Campo Nombre Vacio");
+        }
+        if(paquete.txtApellido.getSelectedText() == null){
+            JOptionPane.showMessageDialog(null, "Campo Apellido Vacio");
+        }
+        if(paquete.txtImporte.getSelectedText() == null){
+            JOptionPane.showMessageDialog(null, "Campo Importe Vacio");
+        }
+        
+    }
+    private void limpiar(){
+        paquete.txtNombre.setText("");
+        paquete.txtApellido.setText("");
+        paquete.txtCorreo.setText("");
+        paquete.txtDireccion.setText("");
+        paquete.txtFechaNacimiento.setText("");
+        paquete.txtRetorno.setText("");
+        paquete.txtFechaSalida.setText("");
+        paquete.txtTipoDocumento.setText("");
+        paquete.txtTelefono.setText("");
+        paquete.txtImporte.setText("");
     }
     
 }
