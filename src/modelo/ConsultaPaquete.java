@@ -6,6 +6,7 @@
 package modelo;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,7 +27,8 @@ public class ConsultaPaquete {
             ps.setInt(1, paq.getIdPaquete());
             ps.setInt(2, paq.getIdAtractivo());
             ps.setInt(3, paq.getIdCliente());
-            
+            ps.setDate(4, (Date) paq.getFechaSalida());
+             ps.setDate(4, (Date) paq.getFechaRetorno());
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -40,16 +42,19 @@ public class ConsultaPaquete {
             }
         }
     }
-    public boolean modificar(clContinente cont) {
+    public boolean modificar(clPaquete paq) {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE tblcontinente SET idContinente=?, descripcion=?";
+        String sql = "UPDATE tblPaquete SET idPaquete=?, descripcion=?";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, cont.getIdContinente());
-            ps.setString(2, cont.getDescripcion());
+            ps.setInt(1, paq.getIdPaquete());
+            ps.setInt(2, paq.getIdAtractivo());
+            ps.setInt(3, paq.getIdCliente());
+            ps.setDate(4, (Date) paq.getFechaSalida());
+             ps.setDate(4, (Date) paq.getFechaRetorno());
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -63,15 +68,15 @@ public class ConsultaPaquete {
             }
         }
     }
-    public boolean eliminar(clContinente cont) {
+    public boolean eliminar(clPaquete paq) {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "DELETE FROM tblcontinente WHERE idContinente=? ";
+        String sql = "DELETE FROM tblPaquete WHERE idPaquete=? ";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, cont.getIdContinente());
+            ps.setInt(1, paq.getIdPaquete());
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -85,21 +90,25 @@ public class ConsultaPaquete {
             }
         }
     }
-    public boolean buscar(clContinente cont) {
+    public boolean buscar(clPaquete paq) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection con = getConexion();
 
-        String sql = "SELECT * FROM tblcontinente WHERE idContinente=? ";
+        String sql = "SELECT * FROM tblPaquere WHERE idPaquete=? ";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, cont.getIdContinente());
+            ps.setInt(1, paq.getIdPaquete());
             rs = ps.executeQuery();
 
             if (rs.next()) {
-                cont.setIdContinente(Integer.parseInt(rs.getString("idContinente")));
-                cont.setDescripcion(rs.getString("descripcion"));
+                paq.setIdPaquete(Integer.parseInt(rs.getString("idPaquete")));
+                paq.setIdAtractivo(Integer.parseInt(rs.getString("idAtractivo")));
+                paq.setIdCliente(Integer.parseInt(rs.getString("idCliente")));
+               paq.setFechaSalida(rs.getDate("FechaSalida"));
+               paq.setFechaSalida(rs.getDate("FechaRetorno"));
+                
                 return true;
             }
             return false;
@@ -114,4 +123,6 @@ public class ConsultaPaquete {
             }
         }
     }
+
+    
 }
