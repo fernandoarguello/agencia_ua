@@ -13,22 +13,25 @@ import java.sql.SQLException;
 
 /**
  *
- * @author farguello
+ * @author claud
  */
-public class ConsultaPaquete {
-    public boolean registrar (clPaquete paq) {
+public class ConsultaAtractivo {
+   public boolean registrar (clAtractivo atr) {
         PreparedStatement ps = null;
         Connection con = getConexion();
         
-        String sql = "INSERT INTO Paquete (idPaquete, idAtractivo, idCliente,FechaSalida,FechaRetorno) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO Paquete (idAtractivo, idPais,idCiudad,idCategoria,descripcion,preico,hora_inicio,hora_fin) VALUES(?,?,?,?,?,?,?)";
         
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, paq.getIdPaquete());
-            ps.setInt(2, paq.getIdAtractivo());
-            ps.setInt(3, paq.getIdCliente());
-            ps.setDate(4, (Date) paq.getFechaSalida());
-             ps.setDate(4, (Date) paq.getFechaRetorno());
+            ps.setInt(1, atr.getIdAtractivo());
+            ps.setInt(2, atr.getIdPais());
+            ps.setInt(3, atr.getIdCiudad());
+            ps.setInt(3, atr.getIdCategoria());
+            ps.setString(4, atr.getDescripcion());
+            ps.setDouble(5, atr.getPrecio());
+            ps.setTime(6, atr.getHora_inicio());
+            ps.setTime(6, atr.getHora_fin());
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -42,19 +45,22 @@ public class ConsultaPaquete {
             }
         }
     }
-    public boolean modificar(clPaquete paq) {
+    public boolean modificar(clAtractivo atr) {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE tblPaquete SET idPaquete=?, descripcion=?";
+        String sql = "UPDATE tblAtractivo SET idAtractivo=?, idPais=?,idCiudad=?,idCategoria=?,descripcion=?,preico=?,hora_inicio=?,hora_fin=?";
 
         try {
-            ps = con.prepareStatement(sql);
-            ps.setInt(1, paq.getIdPaquete());
-            ps.setInt(2, paq.getIdAtractivo());
-            ps.setInt(3, paq.getIdCliente());
-            ps.setDate(4, (Date) paq.getFechaSalida());
-             ps.setDate(4, (Date) paq.getFechaRetorno());
+             ps = con.prepareStatement(sql);
+            ps.setInt(1, atr.getIdAtractivo());
+            ps.setInt(2, atr.getIdPais());
+            ps.setInt(3, atr.getIdCiudad());
+            ps.setInt(3, atr.getIdCategoria());
+            ps.setString(4, atr.getDescripcion());
+            ps.setDouble(5, atr.getPrecio());
+            ps.setTime(6, atr.getHora_inicio());
+            ps.setTime(6, atr.getHora_fin());
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -68,15 +74,15 @@ public class ConsultaPaquete {
             }
         }
     }
-    public boolean eliminar(clPaquete paq) {
+    public boolean eliminar(clAtractivo atr) {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "DELETE FROM tblPaquete WHERE idPaquete=? ";
+        String sql = "DELETE FROM tblAtractivo WHERE idAtractivo=? ";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, paq.getIdPaquete());
+            ps.setInt(1, atr.getIdAtractivo());
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -90,24 +96,27 @@ public class ConsultaPaquete {
             }
         }
     }
-    public boolean buscar(clPaquete paq) {
+    public boolean buscar(clAtractivo atr) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection con = getConexion();
 
-        String sql = "SELECT * FROM tblPaquere WHERE idPaquete=? ";
+        String sql = "SELECT * FROM tblAtractivo WHERE idAtractivo=? ";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, paq.getIdPaquete());
+            ps.setInt(1, atr.getIdAtractivo());
             rs = ps.executeQuery();
 
             if (rs.next()) {
-                paq.setIdPaquete(Integer.parseInt(rs.getString("idPaquete")));
-                paq.setIdAtractivo(Integer.parseInt(rs.getString("idAtractivo")));
-                paq.setIdCliente(Integer.parseInt(rs.getString("idCliente")));
-               paq.setFechaSalida(rs.getDate("FechaSalida"));
-               paq.setFechaSalida(rs.getDate("FechaRetorno"));
+                atr.setIdAtractivo(Integer.parseInt(rs.getString("idAtractivo")));
+                atr.setIdPais(Integer.parseInt(rs.getString("idPais")));
+                atr.setIdCiudad(Integer.parseInt(rs.getString("idCiudad")));
+                atr.setIdCategoria(Integer.parseInt(rs.getString("idCategoria")));
+                atr.setDescripcion(rs.getString("descripcion"));
+                atr.setPrecio(rs.getDouble("precio"));
+               atr.setHora_inicio(rs.getTime("Hora_inicio"));
+               atr.setHora_fin(rs.getTime("setHora_fin"));
                 
                 return true;
             }
@@ -129,4 +138,5 @@ public class ConsultaPaquete {
     }
 
     
+ 
 }
