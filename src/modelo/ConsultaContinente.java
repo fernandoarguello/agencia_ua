@@ -41,12 +41,12 @@ public class ConsultaContinente extends clConexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE dbagencia.tblContinente SET idContinente=?, descripcion=? where idContinente=?";
+        String sql = "UPDATE dbagencia.tblContinente SET descripcion=? where descripcion=?";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, cont.getIdContinente());
-            ps.setString(2, cont.getDescripcion());
+            //ps.setInt(1, cont.getIdContinente());
+            ps.setString(1, cont.getDescripcion());
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -64,11 +64,12 @@ public class ConsultaContinente extends clConexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "DELETE FROM dbagencia.tblContinente WHERE idContinente=? ";
+        String sql = "DELETE FROM dbagencia.tblContinente WHERE descripcion=? ";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, cont.getIdContinente());
+            //ps.setInt(1, cont.getIdContinente());
+            ps.setString(1, cont.getDescripcion());
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -87,11 +88,12 @@ public class ConsultaContinente extends clConexion{
         ResultSet rs = null;
         Connection con = getConexion();
 
-        String sql = "SELECT * FROM dbagencia.tblContinente WHERE idContinente=? ";
+        String sql = "SELECT * FROM dbagencia.tblContinente WHERE descripcion=? ";
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setInt(1, cont.getIdContinente());
+           // ps.setInt(1, cont.getIdContinente());
+            ps.setString(1, cont.getDescripcion());
             rs = ps.executeQuery();
 
             if (rs.next()) {
