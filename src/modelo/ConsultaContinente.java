@@ -41,7 +41,7 @@ public class ConsultaContinente extends clConexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE dbagencia.tblContinente SET idContinente=?, descripcion=?";
+        String sql = "UPDATE dbagencia.tblContinente SET idContinente=?, descripcion=? where idContinente=?";
 
         try {
             ps = con.prepareStatement(sql);

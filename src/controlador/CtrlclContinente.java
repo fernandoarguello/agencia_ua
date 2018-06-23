@@ -1,4 +1,9 @@
-package Controlador;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package controlador;
 
 import modelo.ConsultaContinente;
 import modelo.clContinente;
@@ -7,24 +12,26 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
-public class CtrlclContinente implements ActionListener {
-
-    private clContinente mod;
-    private ConsultaContinente modC;
+/**
+ *
+ * @author Eduardo Giménez
+ */
+public class CtrlclContinente implements ActionListener{
+    private clContinente cont;
+    private ConsultaContinente contC;
     private frmContinente frm;
-
-    public CtrlclContinente(clContinente mod, ConsultaContinente modC, frmContinente frm) {
-        this.mod = mod;
-        this.modC = modC;
+    
+    public CtrlclContinente(clContinente cont, ConsultaContinente contC, frmContinente frm){
+        this.cont = cont;
+        this.contC = contC;
         this.frm = frm;
         this.frm.btnInsertar.addActionListener(this);
         this.frm.btnModificar.addActionListener(this);
         this.frm.btnEliminar.addActionListener(this);
-        //this.frm.btnLimpiar.addActionListener(this);
         this.frm.btnBuscar.addActionListener(this);
     }
-
-    public void iniciar() {
+    
+    public void iniciar(){
         frm.setTitle("Continente");
         frm.setLocationRelativeTo(null);
         frm.txtDescripcion.setVisible(false);
@@ -32,12 +39,10 @@ public class CtrlclContinente implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        if (e.getSource() == frm.btnInsertar) {
-            mod.setDescripcion(frm.txtDescripcion.getText());
-           
-            
-            if(modC.registrar(mod))
+        if (e.getSource()== frm.btnInsertar){
+            cont.setDescripcion(frm.txtDescripcion.getText());
+                        
+            if(contC.registrar(cont))
             {
                 JOptionPane.showMessageDialog(null, "Registro Guardado");
                 limpiar();
@@ -48,10 +53,9 @@ public class CtrlclContinente implements ActionListener {
         }
         
         if (e.getSource() == frm.btnModificar) {
-            
-            mod.setDescripcion(frm.txtDescripcion.getText());
-            
-            if(modC.modificar(mod))
+            cont.setDescripcion(frm.txtDescripcion.getText());
+                        
+            if(contC.modificar(cont))
             {
                 JOptionPane.showMessageDialog(null, "Registro Modificado");
                 limpiar();
@@ -62,9 +66,9 @@ public class CtrlclContinente implements ActionListener {
         }
         
         if (e.getSource() == frm.btnEliminar) {
-            mod.setDescripcion(frm.txtDescripcion.getText());
+            cont.setDescripcion(frm.txtDescripcion.getText());
             
-            if(modC.eliminar(mod))
+            if(contC.eliminar(cont))
             {
                 JOptionPane.showMessageDialog(null, "Registro Eliminado");
                 limpiar();
@@ -75,28 +79,20 @@ public class CtrlclContinente implements ActionListener {
         }
         
         if (e.getSource() == frm.btnBuscar) {
-            mod.setDescripcion(frm.txtDescripcion.getText());
+            cont.setDescripcion(frm.txtDescripcion.getText());
             
-            if(modC.buscar(mod))
+            if(contC.buscar(cont))
             {
-              mod.setDescripcion(frm.txtDescripcion.getText());
-
+                frm.txtDescripcion.setText(cont.getDescripcion());
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontro registro");
                 limpiar();
             }
         }
-        
-//        if (e.getSource() == frm.btnLimpiar) {
-//            limpiar();
-//        }
-
     }
     
     public void limpiar()
     {
         frm.txtDescripcion.setText(null);
-        
     }
-
 }
