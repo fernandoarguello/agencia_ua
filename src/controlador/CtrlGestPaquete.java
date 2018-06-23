@@ -74,11 +74,7 @@ public class CtrlGestPaquete implements ActionListener {
             } catch (SQLException ex) {
                 Logger.getLogger(CtrlGestPaquete.class.getName()).log(Level.SEVERE, null, ex);
             }
-            try {
-                ConPaq.getConexion().close();
-            } catch (SQLException ex) {
-                Logger.getLogger(CtrlGestPaquete.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            
         }else if(e.getSource() == paquete.cmbPais){
             
         }
