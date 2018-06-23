@@ -9,9 +9,11 @@ package controlador;
  *
  * @author farguello
  */
+import java.awt.Event;
 import vista.frmPaquete;
 import modelo.ConsultasCliente;
 import modelo.ConsultaPais;
+import modelo.ConsultaPaquete;
 import modelo.clPais;
 import modelo.clCliente;
 
@@ -19,6 +21,8 @@ import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class CtrlGestPaquete implements ActionListener {
@@ -34,7 +38,7 @@ public class CtrlGestPaquete implements ActionListener {
         this.pais    = Pais;
         this.cPais   = cPais;
         this.paquete.btnBuscar.addActionListener(this); //Escucha del botón de búsqueda de cliente.
-        
+        this.paquete.cmbPais.addActionListener(this); //Escucha de la accion del combobox pais.
         ResultSet rs = this.cPais.ListarPaises();
         try{
             while(rs.next()){
@@ -47,9 +51,7 @@ public class CtrlGestPaquete implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == paquete){
-            
-        }else if(e.getSource() == paquete.btnBuscar){
+        if(e.getSource() == paquete.btnBuscar){
             clie.setDocumento(paquete.txtDocumento.getText());
             if(ConClie.BuscarClientePaquete(clie)){
                 paquete.txtTipoDocumento.setText(clie.getTipoDocumento());
@@ -62,6 +64,23 @@ public class CtrlGestPaquete implements ActionListener {
             }else {
                 JOptionPane.showMessageDialog(null, "No se encontro registro");
             }
+        }else if(e.getSource() == paquete.btnAgregar){
+            ConsultaPaquete ConPaq = new ConsultaPaquete();
+            ResultSet rs = ConPaq.ListarPaquete(paquete.cmbPais.getSelectedItem().toString());
+            try {
+                while(rs.next()){
+                    paquete.cmbPaquete.addItem(rs.getString("descripcion"));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CtrlGestPaquete.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            try {
+                ConPaq.getConexion().close();
+            } catch (SQLException ex) {
+                Logger.getLogger(CtrlGestPaquete.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else if(e.getSource() == paquete.cmbPais){
+            
         }
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
