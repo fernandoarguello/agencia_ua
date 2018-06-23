@@ -30,6 +30,7 @@ public class CtrlMenuPrincipal implements ActionListener{
     public frmGestionUsuario GestionUsuario;
     public frmCliente cliente;
     public frmContinente continente;
+    public clCliente cli;
     public CtrlMenuPrincipal(frmPrincipal menu){
         this.MenuPrincipal = menu;
         this.MenuPrincipal.jmiTratarPaquete.addActionListener(this);
@@ -62,7 +63,14 @@ public class CtrlMenuPrincipal implements ActionListener{
             frmCliente GesClie = new frmCliente();
             ConsultasCliente ConClie = new ConsultasCliente();
             clCliente Clie = new clCliente();
-            CtrlclCliente clieC = new CtrlclCliente(Clie, ConClie, GesClie);
+            clPais Pais = new clPais();
+            ConsultaPais cPais = new ConsultaPais();
+            
+            try {
+                CtrlclCliente clieC = new CtrlclCliente(Clie, ConClie, GesClie, cPais, Pais);
+            } catch (SQLException ex) {
+                Logger.getLogger(CtrlMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
             MenuPrincipal.jdpPrincipal.add(GesClie);
             GesClie.setVisible(true);
         }else if(e.getSource()== MenuPrincipal.mnuitmContinente){

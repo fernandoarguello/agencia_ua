@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import modelo.clPais;
 
 /**
  *
@@ -20,39 +21,54 @@ public class CtrlclCliente implements ActionListener{
     private ConsultasCliente cliC;
     private frmCliente frm;
     private ConsultaPais conP;
+    private clPais pais;
     
-    public CtrlclCliente(clCliente cli, ConsultasCliente cliC, frmCliente frm){
+    public CtrlclCliente(clCliente cli, ConsultasCliente cliC, frmCliente frm, ConsultaPais conP, clPais pais) throws SQLException{
         this.cli = cli;
         this.cliC = cliC;
         this.frm = frm;
+        this.conP = conP;
+        this.pais = pais;
         this.frm.btnGrabar.addActionListener(this);
         this.frm.btnModificar.addActionListener(this);
         this.frm.btnEliminar.addActionListener(this);
         this.frm.btnBuscar.addActionListener(this);
         this.frm.btnLimpiar.addActionListener(this);
-        ResultSet resS=conP.ListarPaises;
-        while (resS.next()){
-            frm.cmbPais.addItem(resS.getString("descripcion"));
+        
+        ResultSet resS = conP.ListarPaises();
+        try{
+            while (resS.next()){
+                frm.cmbPais.addItem(resS.getString("descripcion"));
+            }
+            this.conP.ListarPaises().close();
+        }catch(SQLException e){
+                    System.err.println(e);
         }
-        this.conP.ListarPaises.close();
+            
     }
+
+    
+        
+    
     
     public void iniciar(){
         frm.setTitle("Cliente");
         frm.setLocationRelativeTo(null);
         frm.txtIdCliente.setVisible(false);
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource()== frm.btnGrabar){
+        if (e.getSource()== frm){
+        
+        }else if(e.getSource()== frm.btnGrabar){
             cli.setIdCliente(Integer.parseInt(frm.txtIdCliente.getText()));
-            cli.setDocumento(frm.txtDocumento.getText());
             cli.setTipoDocumento(frm.cmbTipoDocumento.toString());
             cli.setNombres(frm.txtNombres.getText());
             cli.setApellidos(frm.txtApellidos.getText());
             cli.setDireccion(frm.txtDireccion.getText());
-            cli.setIdPais(Integer.parseInt(frm.cmbPais.toString()));
+            cli.setDescripcion(frm.cmbPais.getSelectedItem().toString());
+            //cli.setIdPais(Integer.parseInt(frm.cmbPais.toString()));
             cli.setCiudad(Integer.parseInt(frm.cmbCiudad.toString()));
             cli.setTelefono(frm.txtTelefono.getText());
             cli.setMail(frm.txtEmail.getText());
@@ -105,8 +121,7 @@ public class CtrlclCliente implements ActionListener{
         if (e.getSource() == frm.btnBuscar) {
             cli.setDocumento(frm.txtDocumento.getText());
             
-            if(cliC.buscar(cli))
-            {
+            if(cliC.buscar(cli)){
                 frm.txtIdCliente.setText(String.valueOf(cli.getIdCliente()));
                 frm.txtDocumento.setText(cli.getDocumento());
                 frm.cmbTipoDocumento.addItem("Cédula");
@@ -137,7 +152,7 @@ public class CtrlclCliente implements ActionListener{
         frm.txtNombres.setText(null);
         frm.txtApellidos.setText(null);
         frm.txtDireccion.setText(null);
-        //frm.cmbPais.setModel(null);
+        //frm.cmbPais.setSelectedItem(null);
         //frm.cmbCiudad.setModel(null);
         frm.txtFechaNacimiento.setText(null);
         frm.txtTelefono.setText(null);

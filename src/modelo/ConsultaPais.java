@@ -118,6 +118,22 @@ public class ConsultaPais extends clConexion{
             }
         }
     }
+ 
+    public ResultSet ObtieneIdPais(){
+        PreparedStatement ps = null;
+        ResultSet    rs=null;
+        java.sql.Connection con = getConexion();
+        
+        String sql = "Select IdPais from dbagencia.tblPais where descripcion = ? ";
+        try{
+            ps = con.prepareCall(sql);
+            rs = ps.executeQuery();
+            return rs;
+        }catch (SQLException e){
+            System.err.println(e);
+            return rs;
+        }
+            }
     public ResultSet ListarPaises(){
         PreparedStatement ps = null;
         ResultSet         rs = null;
