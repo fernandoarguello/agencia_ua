@@ -20,6 +20,7 @@ public class clCliente {
     private Date FechaNacimiento;
     private String direccion;
     private int idPais;
+    private String descripcion;
     private int Ciudad;
     private String telefono;
     private String mail;
@@ -75,6 +76,10 @@ public class clCliente {
     public String getDireccion() {
         return direccion;
     }
+    
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
@@ -87,7 +92,12 @@ public class clCliente {
     public void setIdPais(int idPais) {
         this.idPais = idPais;
     }
-
+    
+    public void getDescripcion(){
+        
+    }
+    
+    
     public int getCiudad() {
         return Ciudad;
     }
@@ -110,6 +120,10 @@ public class clCliente {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    private String setDescripcion() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
    

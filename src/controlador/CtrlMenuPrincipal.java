@@ -13,6 +13,8 @@ import modelo.ConsultasCliente;
 import modelo.clCliente;
 import modelo.ConsultaPais;
 import modelo.clPais;
+import modelo.ConsultaContinente;
+import modelo.clContinente;
 import controlador.CtrlGestPaquete;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,6 +37,8 @@ public class CtrlMenuPrincipal implements ActionListener{
     public frmGestionUsuario GestionUsuario;
     public frmCliente cliente;
     public frmContinente continente;
+    public clCliente cli;
+    public clContinente cCont;
     public CtrlMenuPrincipal(frmPrincipal menu){
         this.MenuPrincipal = menu;
         this.MenuPrincipal.jmiTratarPaquete.addActionListener(this);
@@ -51,11 +55,9 @@ public class CtrlMenuPrincipal implements ActionListener{
             clCliente Clie = new clCliente();
             ConsultaPais cPais = new ConsultaPais();
             clPais Pais = new clPais();
-            try {
-                CtrlGestPaquete acciones = new CtrlGestPaquete(paq, ConClie, Clie, cPais, Pais);
-            } catch (SQLException ex) {
-                Logger.getLogger(CtrlMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            ConsultaContinente Cont  = new ConsultaContinente();
+            clContinente cCont = new clContinente();
+            CtrlGestPaquete acciones = new CtrlGestPaquete(paq, ConClie, Clie, cPais, Pais, Cont, cCont);
             MenuPrincipal.jdpPrincipal.add(paq);
             
             paq.setVisible(true);
@@ -65,10 +67,25 @@ public class CtrlMenuPrincipal implements ActionListener{
             GestUs.setVisible(true);
         }else if(e.getSource()== MenuPrincipal.mnuitmCliente){
             frmCliente GesClie = new frmCliente();
+            ConsultasCliente ConClie = new ConsultasCliente();
+            clCliente Clie = new clCliente();
+            clPais Pais = new clPais();
+            ConsultaPais cPais = new ConsultaPais();
+            
+            try {
+                CtrlclCliente clieC = new CtrlclCliente(Clie, ConClie, GesClie, cPais, Pais);
+            } catch (SQLException ex) {
+                Logger.getLogger(CtrlMenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
             MenuPrincipal.jdpPrincipal.add(GesClie);
             GesClie.setVisible(true);
         }else if(e.getSource()== MenuPrincipal.mnuitmContinente){
             frmContinente GesCont = new frmContinente();
+            ConsultaContinente ConCont = new ConsultaContinente();
+            clContinente Cont = new clContinente();
+            
+            
+            CtrlclContinente contC = new CtrlclContinente(Cont, ConCont, GesCont);
             MenuPrincipal.jdpPrincipal.add(GesCont);
             GesCont.setVisible(true);
         }

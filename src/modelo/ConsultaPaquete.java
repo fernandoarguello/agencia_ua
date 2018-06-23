@@ -21,7 +21,7 @@ public class ConsultaPaquete extends clConexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
         
-        String sql = "INSERT INTO Paquete (idPaquete, idAtractivo, idCliente,FechaSalida,FechaRetorno) VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO dbagencia.tblPaquete (idPaquete, idAtractivo, idCliente,FechaSalida,FechaRetorno) VALUES(?,?,?,?,?)";
         
         try {
             ps = con.prepareStatement(sql);
@@ -47,7 +47,7 @@ public class ConsultaPaquete extends clConexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE tblPaquete SET idPaquete=?, descripcion=?";
+        String sql = "UPDATE dbagencia.tblPaquete SET idPaquete=?, descripcion=?";
 
         try {
             ps = con.prepareStatement(sql);
@@ -73,7 +73,7 @@ public class ConsultaPaquete extends clConexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "DELETE FROM tblPaquete WHERE idPaquete=? ";
+        String sql = "DELETE FROM dbagencia.tblPaquete WHERE idPaquete=? ";
 
         try {
             ps = con.prepareStatement(sql);
@@ -96,7 +96,7 @@ public class ConsultaPaquete extends clConexion{
         ResultSet rs = null;
         Connection con = getConexion();
 
-        String sql = "SELECT * FROM tblPaquere WHERE idPaquete=? ";
+        String sql = "SELECT * FROM dbagencia.tblPaquete WHERE idPaquete=? ";
 
         try {
             ps = con.prepareStatement(sql);
@@ -125,7 +125,7 @@ public class ConsultaPaquete extends clConexion{
         }
     }
 
-//    private Connection getConexion() {
+////    private Connection getConexion() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //    }
 

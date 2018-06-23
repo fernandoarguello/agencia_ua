@@ -18,7 +18,7 @@ public class ConsultaCiudad extends clConexion{
       public boolean registrar(clCiudad ciu) {
         PreparedStatement ps = null;
         Connection con = getConexion();
-        String sql = "INSERT INTO Ciudad (idCiudad, idPais, descripcion) VALUES(?,?,?)";
+        String sql = "INSERT INTO dbagencia.tblCiudad (idCiudad, idPais, descripcion) VALUES(?,?,?)";
          try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, ciu.getIdPais());
@@ -42,7 +42,7 @@ public class ConsultaCiudad extends clConexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE ciudad SET idCiudad=?, idPais=?, descripcion=?,WHERE id=? ";
+        String sql = "UPDATE dbagencia.tblciudad SET idCiudad=?, idPais=?, descripcion=?,WHERE id=? ";
 
         try {
             ps = con.prepareStatement(sql);
@@ -66,7 +66,7 @@ public class ConsultaCiudad extends clConexion{
         PreparedStatement ps = null;
         java.sql.Connection con = getConexion();
 
-        String sql = "DELETE FROM ciudad WHERE id=? ";
+        String sql = "DELETE FROM dbagencia.tblCiudad WHERE id=? ";
 
         try {
             ps = con.prepareStatement(sql);
@@ -89,7 +89,7 @@ public class ConsultaCiudad extends clConexion{
         ResultSet rs = null;
         java.sql.Connection con = getConexion();
 
-        String sql = "SELECT * FROM ciudad WHERE idCiudad=? ";
+        String sql = "SELECT * FROM dbagencia.tblCiudad WHERE idCiudad=? ";
 
         try {
             ps = con.prepareStatement(sql);

@@ -14,11 +14,6 @@
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mnuitmCambioContrasenha">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cambiar Contrase&#xf1;a"/>
-              </Properties>
-            </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="sprSeparador1">
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mnuitmSalir">
@@ -95,12 +90,6 @@
               </AuxValues>
             </MenuItem>
           </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="mnuConsultas">
-          <Properties>
-            <Property name="mnemonic" type="int" value="67"/>
-            <Property name="text" type="java.lang.String" value="Consultas"/>
-          </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnuAdministrar">
           <Properties>

@@ -88,6 +88,11 @@ public class frmAcceso extends javax.swing.JFrame {
         etiTitulo.setText("Iniciar Sesión");
 
         btnAceptar.setText("Aceptar");
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +139,7 @@ public class frmAcceso extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        dispose();
+        System.exit(0);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void pswContrasenhaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pswContrasenhaKeyTyped
@@ -144,6 +149,11 @@ public class frmAcceso extends javax.swing.JFrame {
             btnAceptar.doClick();
         }
     }//GEN-LAST:event_pswContrasenhaKeyTyped
+
+    
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAceptarActionPerformed
 
     /**
      * @param args the command line arguments

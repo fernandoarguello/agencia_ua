@@ -20,7 +20,7 @@ public class ConsultasCliente extends clConexion{
         Connection con = getConexion();
         
         
-        String sql = "INSERT INTO tblCliente (idCliente, documento, TipoDocumento, Nombres, Apellidos, FechaNacimiento, direccion, ciudad, telefono, mail) VALUES(?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO dbagencia.tblCliente (idCliente, documento, TipoDocumento, Nombres, Apellidos, FechaNacimiento, direccion, ciudad, telefono, mail) VALUES(?,?,?,?,?,?,?,?,?,?)";
 
         try {
             ps = con.prepareStatement(sql);
@@ -51,7 +51,7 @@ public class ConsultasCliente extends clConexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE tblCliente SET documento=?, TipoDocumento=?, Nombres=? WHERE idCliente=? ";
+        String sql = "UPDATE dbagencia.tblCliente SET documento=?, TipoDocumento=?, Nombres=? WHERE idCliente=? ";
 
         try {
             ps = con.prepareStatement(sql);
@@ -76,7 +76,7 @@ public class ConsultasCliente extends clConexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "DELETE FROM tblCliente WHERE idCliente=? ";
+        String sql = "DELETE FROM dbagencia.tblCliente WHERE idCliente=? ";
 
         try {
             ps = con.prepareStatement(sql);
@@ -100,7 +100,7 @@ public class ConsultasCliente extends clConexion{
         ResultSet rs = null;
         Connection con = getConexion();
 
-        String sql = "SELECT * FROM tblCliente WHERE idCliente=? ";
+        String sql = "SELECT * FROM dbagencia.tblCliente WHERE idCliente=? ";
 
         try {
             ps = con.prepareStatement(sql);

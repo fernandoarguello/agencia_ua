@@ -19,7 +19,7 @@ public class ConsultaCategoria extends clConexion{
    public boolean registrar(clCategoria cat) {
         PreparedStatement ps = null;
         Connection con = getConexion();
-        String sql = "INSERT INTO Categoria (idCategoria,descripcion) VALUES(?,?)";
+        String sql = "INSERT INTO dbagencia.tblCategoria (idCategoria,descripcion) VALUES(?,?)";
          try {
             ps = con.prepareStatement(sql);
             ps.setInt(1, cat.getIdCategoria());
@@ -43,7 +43,7 @@ public class ConsultaCategoria extends clConexion{
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE categoria SET idCategoria=?,descripcion=?,WHERE id=? ";
+        String sql = "UPDATE dbagencia.tblCategoria SET idCategoria=?,descripcion=?,WHERE id=? ";
 
         try {
             ps = con.prepareStatement(sql);
@@ -66,7 +66,7 @@ public class ConsultaCategoria extends clConexion{
         PreparedStatement ps = null;
         java.sql.Connection con = getConexion();
 
-        String sql = "DELETE FROM categoria WHERE id=? ";
+        String sql = "DELETE FROM dbagencia.tblCategoria WHERE id=? ";
 
         try {
             ps = con.prepareStatement(sql);
@@ -89,7 +89,7 @@ public class ConsultaCategoria extends clConexion{
         ResultSet rs = null;
         java.sql.Connection con = getConexion();
 
-        String sql = "SELECT * FROM categoria WHERE idCategoria=? ";
+        String sql = "SELECT * FROM dbagencia.tblCategoria WHERE idCategoria=? ";
 
         try {
             ps = con.prepareStatement(sql);
