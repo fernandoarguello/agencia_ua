@@ -30,6 +30,7 @@ import java.util.logging.Logger;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import modelo.clAtractivo;
 import modelo.clPaquete;
 
 public class CtrlGestPaquete implements ActionListener {
@@ -52,7 +53,10 @@ public class CtrlGestPaquete implements ActionListener {
         this.paquete.btnBuscar.addActionListener(this); //Escucha del botón de búsqueda de cliente.
         this.paquete.cmbPais.addActionListener(this); //Escucha de la accion del combobox pais.
         this.paquete.cmbPaquete.addActionListener(this);
+        this.paquete.txtDocumento.addActionListener(this);
+        this.paquete.txtImporte.addActionListener(this);
         this.paquete.cmbPais.removeAllItems();
+        this.paquete.btnGuardar.addActionListener(this);
         
         cpaquete = new ConsultaPaquete();
         ArrayList paises = cPais.ListaPais();
@@ -80,30 +84,46 @@ public class CtrlGestPaquete implements ActionListener {
                 JOptionPane.showMessageDialog(null, "No se encontro registro");
             }
         }else if(e.getSource() == paquete.cmbPais){
-//            this.paquete.cmbPaquete.removeAllItems();
-//            ArrayList paquetes = new ArrayList();
-//            clPais p = new clPais();
-//            p.setDescripcion("Paraguay");
-//            paquetes = cpaquete.ListarPaquete(p);
-//            Iterator<String> n = paquetes.iterator();
-//            while(n.hasNext()){
-//                paquete.cmbPaquete.addItem(n.next());
-//            }
+            if(paquete.cmbPais.getSelectedItem() != null){
+                paquete.cmbPaquete.removeAllItems();
+                clPais p = new clPais();
+                p.setDescripcion(paquete.cmbPais.getSelectedItem().toString());
+                ArrayList paquetes = new ArrayList();
+                ConsultaPaquete cpaquete = new ConsultaPaquete();
+                paquetes = cpaquete.ListarPaquete(p);
+    //            paquetes = cpaquete.ListarPaquete(paquete.cmbPais.getSelectedItem().toString());
+                Iterator<String> n = paquetes.iterator();
+                while(n.hasNext()){
+                    paquete.cmbPaquete.addItem(n.next());
+                }
+            }
         }else if(e.getSource() == paquete.cmbPaquete){
             
         }else if(e.getSource() == paquete.btnGuardar){
-            validar();
+           
             clPaquete p = new clPaquete();
-            
-            p.setIdCliente(0);
+            clie.setDocumento(paquete.txtDocumento.getText());
+            if(ConClie.BuscarClientePaquete(clie)){
+                p.setIdCliente(clie.getIdCliente());   
+            }
+            ;
             p.setEstado(Boolean.FALSE);
-            p.setIdAtractivo(0);
-            p.setFechaSalida(Date.valueOf(paquete.txtFechaSalida.getText()));
-            p.setFechaRetorno(Date.valueOf(paquete.txtFechaSalida.getText()));
+            clAtractivo a = new clAtractivo();
+            a.setDescripcion(paquete.cmbPaquete.getSelectedItem().toString());
+            int atractivo = cpaquete.ObtPaquete(a).getIdAtractivo();
+            a.setIdAtractivo(atractivo);
+            p.setIdAtractivo(a.getIdAtractivo());
+            p.setFechaSalida(Date.valueOf(paquete.txtFechaSalida.getText().toString()));
+            p.setFechaRetorno(Date.valueOf(paquete.txtFechaSalida.getText().toString()));
             p.setImporte(Double.parseDouble(paquete.txtImporte.getText()));
             cpaquete.RegistrarPaquete(p);
             limpiar();
+        }else if (e.getSource() == paquete.txtDocumento){
+            if("".equals(paquete.txtDocumento.getText().toString())){
+                JOptionPane.showMessageDialog(null, "Debe ingresar el Documento");
+            };
         }
+        
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     private void validar(){

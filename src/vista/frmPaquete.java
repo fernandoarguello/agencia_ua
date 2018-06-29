@@ -299,19 +299,19 @@ public class frmPaquete extends javax.swing.JInternalFrame {
 
     private void cmbPaisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbPaisItemStateChanged
         // TODO add your handling code here:
-        if(cmbPais.getSelectedItem() != null){
-        this.cmbPaquete.removeAllItems();
-        clPais p = new clPais();
-        p.setDescripcion(cmbPais.getSelectedItem().toString());
-        ArrayList paquetes = new ArrayList();
-            ConsultaPaquete cpaquete = new ConsultaPaquete();
-            paquetes = cpaquete.ListarPaquete(p);
-//            paquetes = cpaquete.ListarPaquete(paquete.cmbPais.getSelectedItem().toString());
-            Iterator<String> n = paquetes.iterator();
-            while(n.hasNext()){
-                this.cmbPaquete.addItem(n.next());
-            }
-        }
+//        if(cmbPais.getSelectedItem() != null){
+//        this.cmbPaquete.removeAllItems();
+//        clPais p = new clPais();
+//        p.setDescripcion(cmbPais.getSelectedItem().toString());
+//        ArrayList paquetes = new ArrayList();
+//            ConsultaPaquete cpaquete = new ConsultaPaquete();
+//            paquetes = cpaquete.ListarPaquete(p);
+////            paquetes = cpaquete.ListarPaquete(paquete.cmbPais.getSelectedItem().toString());
+//            Iterator<String> n = paquetes.iterator();
+//            while(n.hasNext()){
+//                this.cmbPaquete.addItem(n.next());
+//            }
+//        }
     }//GEN-LAST:event_cmbPaisItemStateChanged
 
     private void cmbPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPaisActionPerformed

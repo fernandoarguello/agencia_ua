@@ -171,16 +171,15 @@ public class ConsultaPaquete extends clConexion{
     public boolean RegistrarPaquete(clPaquete paquete){
         PreparedStatement ps = null;
         Connection       con = getConexion();
-        String sql = "INSERT INTO dbagencia.tblpaquete(idAtractivo, idCliente, FechaSalida, FechaRetorno, estado, importe) values (?,?,?,?,?,?)";
+        String sql = "INSERT INTO dbagencia.tblpaquete(idAtractivo, FechaSalida, FechaRetorno, tblCliente_idCliente, estado, importe) values (?,?,?,?,?,?)";
         try{
             ps = con.prepareStatement(sql);
-            ps.setInt(2, 0);
-            ps.setInt(3, 0);
-            Date fecha = null;
-            ps.setDate(4, fecha);
-            ps.setDate(5, fecha);
-            ps.setString(6, "");
-            ps.setDouble(7, 0);
+            ps.setInt(1, paquete.getIdAtractivo());
+            ps.setDate(2, Date.valueOf(paquete.getFechaSalida().toString()));
+            ps.setDate(3, Date.valueOf(paquete.getFechaRetorno().toString()));
+            ps.setInt(4, paquete.getIdCliente());
+            ps.setBoolean(5, paquete.getEstado());
+            ps.setDouble(6, paquete.getImporte());
             ps.execute();
             return true;
         }catch(SQLException e){
@@ -189,15 +188,16 @@ public class ConsultaPaquete extends clConexion{
         }finally{
             try{
                 con.close();
+                JOptionPane.showMessageDialog(null, "Registro Insertado Correctamente!!!");
             }catch(SQLException e){
                 System.err.println(e);
             }
         }
     }
     public String ObtCliente(clCliente c){
-        String doc = null;
+        String doc           = null;
         PreparedStatement ps = null;
-        ResultSet rs = null;
+        ResultSet rs         = null;
         com.mysql.jdbc.Connection con = getConexion();
         String sql = "SELECT * FROM dbagencia.tblcliente where documento = ?";
         try{
@@ -220,5 +220,27 @@ public class ConsultaPaquete extends clConexion{
             }
         }
         return doc;
+    }
+    public clAtractivo ObtPaquete(clAtractivo a){
+        PreparedStatement ps = null;
+            ResultSet         rs = null;
+            com.mysql.jdbc.Connection con = getConexion();
+            String sql = "SELECT * FROM dbagencia.tblatractivo WHERE descripcion like '"+a.getDescripcion().toString()+"'";
+        try{
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            if(rs.next()){
+                a.setIdAtractivo(rs.getInt("idAtractivo"));
+            }
+        }catch(SQLException e){
+            System.err.println(e);
+        }finally{
+            try{
+                con.close();
+            }catch(SQLException e){
+                System.err.println(e);
+            }
+        }
+        return a;
     }
 }
