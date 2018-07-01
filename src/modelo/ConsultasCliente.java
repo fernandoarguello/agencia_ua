@@ -143,6 +143,7 @@ public class ConsultasCliente extends clConexion{
             ps = cn.prepareStatement(sql);
             ps.setString(1, clie.getDocumento());
             rs = ps.executeQuery();
+            
             if(rs.next()){
                 clie.setIdCliente(Integer.parseInt(rs.getString("idCliente")));
                 clie.setDocumento(rs.getString("documento"));

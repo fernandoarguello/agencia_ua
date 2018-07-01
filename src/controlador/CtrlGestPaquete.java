@@ -100,24 +100,31 @@ public class CtrlGestPaquete implements ActionListener {
         }else if(e.getSource() == paquete.cmbPaquete){
             
         }else if(e.getSource() == paquete.btnGuardar){
-           
-            clPaquete p = new clPaquete();
-            clie.setDocumento(paquete.txtDocumento.getText());
-            if(ConClie.BuscarClientePaquete(clie)){
-                p.setIdCliente(clie.getIdCliente());   
-            }
-            ;
-            p.setEstado(Boolean.FALSE);
-            clAtractivo a = new clAtractivo();
-            a.setDescripcion(paquete.cmbPaquete.getSelectedItem().toString());
-            int atractivo = cpaquete.ObtPaquete(a).getIdAtractivo();
-            a.setIdAtractivo(atractivo);
-            p.setIdAtractivo(a.getIdAtractivo());
-            p.setFechaSalida(Date.valueOf(paquete.txtFechaSalida.getText().toString()));
-            p.setFechaRetorno(Date.valueOf(paquete.txtFechaSalida.getText().toString()));
-            p.setImporte(Double.parseDouble(paquete.txtImporte.getText()));
-            cpaquete.RegistrarPaquete(p);
-            limpiar();
+            
+           if(validar()){
+                clAtractivo a = new clAtractivo(); 
+                int atractivo = cpaquete.ObtPaquete(a).getIdAtractivo();
+                clPaquete p = new clPaquete();                         //Constructores
+                
+                clie.setDocumento(paquete.txtDocumento.getText());     //Asigna el número de documento del cliente
+                
+                if(ConClie.BuscarClientePaquete(clie)){                //Envia el número de cliente y obtiene su id
+                    p.setIdCliente(clie.getIdCliente());               //Asigna el id de cliente a la instrucción de alta 
+                }
+                p.setEstado(Boolean.FALSE);
+
+                a.setDescripcion(paquete.cmbPaquete.getSelectedItem().toString());
+                a.setIdAtractivo(atractivo);
+                
+                p.setIdAtractivo(a.getIdAtractivo());
+                p.setFechaSalida(Date.valueOf(paquete.txtFechaSalida.getText().toString()));
+                p.setFechaRetorno(Date.valueOf(paquete.txtFechaSalida.getText().toString()));
+                p.setImporte(Double.parseDouble(paquete.txtImporte.getText()));
+                cpaquete.RegistrarPaquete(p);
+                limpiar();
+           }else{
+               JOptionPane.showMessageDialog(null, "Debe Completar todos los campos antes de guardar.");
+           }
         }else if (e.getSource() == paquete.txtDocumento){
             if("".equals(paquete.txtDocumento.getText().toString())){
                 JOptionPane.showMessageDialog(null, "Debe ingresar el Documento");
@@ -126,24 +133,30 @@ public class CtrlGestPaquete implements ActionListener {
         
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    private void validar(){
+    private boolean validar(){
+        int estado = 0;
         if(paquete.txtDocumento.getText() == null){
-            JOptionPane.showMessageDialog(null, "Campo Documento Vacio");
+            estado = 1;
         }
         if(paquete.cmbPais.getSelectedItem() == null){
-            JOptionPane.showMessageDialog(null, "Campo Pais Vacio");
+            estado = 1;
         }
         if(paquete.cmbPaquete.getSelectedItem() == null){
-            JOptionPane.showMessageDialog(null, "Campo Paquete Vacio");
+            estado = 1;
         }
         if(paquete.txtNombre.getSelectedText() == null){
-            JOptionPane.showMessageDialog(null, "Campo Nombre Vacio");
+            estado = 1;
         }
         if(paquete.txtApellido.getSelectedText() == null){
-            JOptionPane.showMessageDialog(null, "Campo Apellido Vacio");
+            estado = 1;
         }
         if(paquete.txtImporte.getSelectedText() == null){
-            JOptionPane.showMessageDialog(null, "Campo Importe Vacio");
+            estado = 1;
+        }
+        if(estado == 1){
+            return false;
+        }else{
+            return true;
         }
         
     }
@@ -158,6 +171,7 @@ public class CtrlGestPaquete implements ActionListener {
         paquete.txtTipoDocumento.setText("");
         paquete.txtTelefono.setText("");
         paquete.txtImporte.setText("");
+        paquete.txtDocumento.requestFocus(true);
     }
     
 }

@@ -30,7 +30,7 @@ public class ConsultaPaquete extends clConexion{
             ps.setInt(2, paq.getIdAtractivo());
             ps.setInt(3, paq.getIdCliente());
             ps.setDate(4, (Date) paq.getFechaSalida());
-             ps.setDate(4, (Date) paq.getFechaRetorno());
+            ps.setDate(4, (Date) paq.getFechaRetorno());
             ps.execute();
             return true;
         } catch (SQLException e) {
