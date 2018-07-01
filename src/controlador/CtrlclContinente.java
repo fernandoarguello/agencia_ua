@@ -83,7 +83,8 @@ public class CtrlclContinente implements ActionListener{
             
             if(contC.buscar(cont))
             {
-                frm.txtDescripcion.setText(cont.getDescripcion());
+                //frm.txtDescripcion.setText(cont.getDescripcion());
+                JOptionPane.showMessageDialog(null, "Registro Encontrado");
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontro registro");
                 limpiar();
