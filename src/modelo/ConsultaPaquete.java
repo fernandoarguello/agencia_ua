@@ -223,9 +223,9 @@ public class ConsultaPaquete extends clConexion{
     }
     public clAtractivo ObtPaquete(clAtractivo a){
         PreparedStatement ps = null;
-            ResultSet         rs = null;
-            com.mysql.jdbc.Connection con = getConexion();
-            String sql = "SELECT * FROM dbagencia.tblatractivo WHERE descripcion like '"+a.getDescripcion().toString()+"'";
+        ResultSet         rs = null;
+        com.mysql.jdbc.Connection con = getConexion();
+        String sql = "SELECT * FROM dbagencia.tblatractivo WHERE descripcion like '"+a.getDescripcion().toString()+"'";
         try{
             ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
