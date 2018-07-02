@@ -26,6 +26,9 @@ public class CtrlGestUsuario implements ActionListener{
         this.ConsUsuario    = ConsUsuario;
         this.frmUsuario.btnAgregar.addActionListener(this);
         this.frmUsuario.btnAgregar.addKeyListener(cmdGuardar);
+        this.frmUsuario.requestFocusInWindow();
+        this.frmUsuario.requestFocus();
+        this.frmUsuario.txtNombre.requestFocus();
     }
 
     @Override
