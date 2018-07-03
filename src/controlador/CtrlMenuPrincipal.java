@@ -15,6 +15,8 @@ import modelo.ConsultaPais;
 import modelo.clPais;
 import modelo.ConsultaContinente;
 import modelo.clContinente;
+import modelo.clUsuario;
+import modelo.ConsultaUsuarios;
 import controlador.CtrlGestPaquete;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -63,6 +65,9 @@ public class CtrlMenuPrincipal implements ActionListener{
             paq.setVisible(true);
         }else if(e.getSource() == MenuPrincipal.jmiUsuario){
             frmGestionUsuario GestUs = new frmGestionUsuario();
+            ConsultaUsuarios ConsUsuarios = new ConsultaUsuarios();
+            clUsuario usuario = new clUsuario();
+            CtrlGestUsuario gestUsuario = new CtrlGestUsuario(GestUs, usuario, ConsUsuarios);
             MenuPrincipal.jdpPrincipal.add(GestUs);
             GestUs.setVisible(true);
         }else if(e.getSource()== MenuPrincipal.mnuitmCliente){

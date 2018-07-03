@@ -44,26 +44,25 @@ public class frmPaquete extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtFechaNacimiento = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtDocumento = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtTipoDocumento = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
+        txtFechaNacimiento = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         cmbPaquete = new javax.swing.JComboBox<>();
-        txtFechaSalida = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        txtRetorno = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txtImporte = new javax.swing.JTextField();
-        btnAgregar = new javax.swing.JButton();
-        btnVerDetalle = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         cmbPais = new javax.swing.JComboBox<>();
+        txtFechaSalida = new javax.swing.JFormattedTextField();
+        txtRetorno = new javax.swing.JFormattedTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -102,8 +101,6 @@ public class frmPaquete extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Fecha de Nacimiento:");
 
-        txtFechaNacimiento.setEditable(false);
-
         jLabel8.setText("Documento:");
 
         jLabel9.setText("Tipo Doc.:");
@@ -111,6 +108,9 @@ public class frmPaquete extends javax.swing.JInternalFrame {
         txtTipoDocumento.setEnabled(false);
 
         btnBuscar.setText("Buscar");
+
+        txtFechaNacimiento.setEditable(false);
+        txtFechaNacimiento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -127,21 +127,22 @@ public class frmPaquete extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
                 .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtApellido)
-                    .addComponent(txtNombre)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel9)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtApellido)
+                        .addComponent(txtNombre)
+                        .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFechaNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -195,9 +196,7 @@ public class frmPaquete extends javax.swing.JInternalFrame {
 
         jLabel13.setText("Importe");
 
-        btnAgregar.setText("Guardar");
-
-        btnVerDetalle.setText("Ver Detalle");
+        btnGuardar.setText("Guardar");
 
         jLabel15.setText("Pais:");
 
@@ -213,6 +212,10 @@ public class frmPaquete extends javax.swing.JInternalFrame {
             }
         });
 
+        txtFechaSalida.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
+
+        txtRetorno.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-MM-dd"))));
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -221,9 +224,7 @@ public class frmPaquete extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnVerDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -236,13 +237,12 @@ public class frmPaquete extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cmbPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFechaSalida, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cmbPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtImporte, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                                    .addComponent(txtRetorno, javax.swing.GroupLayout.Alignment.LEADING)))
-                            .addComponent(cmbPais, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(txtFechaSalida, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtImporte, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)))
+                            .addComponent(cmbPais, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtRetorno, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -258,20 +258,18 @@ public class frmPaquete extends javax.swing.JInternalFrame {
                     .addComponent(cmbPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
+                    .addComponent(jLabel11)
+                    .addComponent(txtFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRetorno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
+                    .addComponent(jLabel12)
+                    .addComponent(txtRetorno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtImporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregar)
-                    .addComponent(btnVerDetalle))
+                .addComponent(btnGuardar)
                 .addGap(21, 21, 21))
         );
 
@@ -306,19 +304,19 @@ public class frmPaquete extends javax.swing.JInternalFrame {
 
     private void cmbPaisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbPaisItemStateChanged
         // TODO add your handling code here:
-        if(cmbPais.getSelectedItem() != null){
-        this.cmbPaquete.removeAllItems();
-        clPais p = new clPais();
-        p.setDescripcion(cmbPais.getSelectedItem().toString());
-        ArrayList paquetes = new ArrayList();
-            ConsultaPaquete cpaquete = new ConsultaPaquete();
-            paquetes = cpaquete.ListarPaquete(p);
-//            paquetes = cpaquete.ListarPaquete(paquete.cmbPais.getSelectedItem().toString());
-            Iterator<String> n = paquetes.iterator();
-            while(n.hasNext()){
-                this.cmbPaquete.addItem(n.next());
-            }
-        }
+//        if(cmbPais.getSelectedItem() != null){
+//        this.cmbPaquete.removeAllItems();
+//        clPais p = new clPais();
+//        p.setDescripcion(cmbPais.getSelectedItem().toString());
+//        ArrayList paquetes = new ArrayList();
+//            ConsultaPaquete cpaquete = new ConsultaPaquete();
+//            paquetes = cpaquete.ListarPaquete(p);
+////            paquetes = cpaquete.ListarPaquete(paquete.cmbPais.getSelectedItem().toString());
+//            Iterator<String> n = paquetes.iterator();
+//            while(n.hasNext()){
+//                this.cmbPaquete.addItem(n.next());
+//            }
+//        }
     }//GEN-LAST:event_cmbPaisItemStateChanged
 
     private void cmbPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbPaisActionPerformed
@@ -327,9 +325,8 @@ public class frmPaquete extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnVerDetalle;
+    public javax.swing.JButton btnGuardar;
     public javax.swing.JComboBox<String> cmbPais;
     public javax.swing.JComboBox<String> cmbPaquete;
     private javax.swing.JLabel jLabel1;
@@ -352,11 +349,11 @@ public class frmPaquete extends javax.swing.JInternalFrame {
     public javax.swing.JTextField txtCorreo;
     public javax.swing.JTextField txtDireccion;
     public javax.swing.JTextField txtDocumento;
-    public javax.swing.JTextField txtFechaNacimiento;
-    public javax.swing.JTextField txtFechaSalida;
+    public javax.swing.JFormattedTextField txtFechaNacimiento;
+    public javax.swing.JFormattedTextField txtFechaSalida;
     public javax.swing.JTextField txtImporte;
     public javax.swing.JTextField txtNombre;
-    public javax.swing.JTextField txtRetorno;
+    public javax.swing.JFormattedTextField txtRetorno;
     public javax.swing.JTextField txtTelefono;
     public javax.swing.JTextField txtTipoDocumento;
     // End of variables declaration//GEN-END:variables

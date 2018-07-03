@@ -133,7 +133,7 @@ public class ConsultaAtractivo extends clConexion{
         }
     }
 
-
+    
 //    private Connection getConexion() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //    }
