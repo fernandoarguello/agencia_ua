@@ -36,6 +36,11 @@ public class frmCiudad extends javax.swing.JInternalFrame {
         btnBuscar = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
 
+        setClosable(true);
+        setIconifiable(true);
+        setResizable(true);
+        setTitle("Ciudad");
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Gestion de Ciudad");
 
