@@ -4,7 +4,6 @@ import modelo.ConsultasCliente;
 import modelo.clCliente;
 import vista.frmCliente;
 import modelo.ConsultaPais;
-import modelo.ConsultaCiudad;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;

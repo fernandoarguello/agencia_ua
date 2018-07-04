@@ -15,6 +15,8 @@ import java.sql.SQLException;
  * @author claud
  */
 public class ConsultaCiudad extends clConexion{
+    
+
       public boolean registrar(clCiudad ciu) {
         PreparedStatement ps = null;
         Connection con = getConexion();
@@ -63,6 +65,8 @@ public class ConsultaCiudad extends clConexion{
         }
     }
  public boolean eliminar(clCiudad ciu) {
+     
+     
         PreparedStatement ps = null;
         java.sql.Connection con = getConexion();
 
