@@ -37,6 +37,10 @@ public class clCiudad {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public void setIdContinente(int idPais) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

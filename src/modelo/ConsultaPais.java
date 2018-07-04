@@ -42,11 +42,12 @@ public class ConsultaPais extends clConexion{
     }
     
 
- public boolean modificar(clPais pais) {
+ public boolean modificar(clPais pais, String descripcion) {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE dbagencia.tblpais SET idPais=?, idContinente=?, descripcion=?, nacionalidad=? WHERE id=? ";
+        //String sql = "UPDATE dbagencia.tblpais SET idPais=?, idContinente=?, descripcion=?, nacionalidad=? WHERE id=? ";
+        String sql = "Update dbagencia.tblpais set descripcion='"+descripcion+"' where idPais = '"+pais.getIdPais()+"';";
 
         try {
             ps = con.prepareStatement(sql);
