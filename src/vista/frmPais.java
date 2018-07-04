@@ -36,9 +36,12 @@ public class frmPais extends javax.swing.JInternalFrame {
         btnBuscar = new javax.swing.JButton();
         txtDescripcion = new javax.swing.JTextField();
 
+        setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Paises");
+        setFrameIcon(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Gestiòn de Paises");
