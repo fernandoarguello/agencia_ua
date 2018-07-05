@@ -11,8 +11,11 @@ import modelo.clPais;
 import vista.frmPais;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.clContinente;
 
@@ -43,8 +46,13 @@ public class CtrlclPais implements ActionListener{
         frm.txtDescripcion.setVisible(false);
     }
     public void CargarContinente(){
-
-        ArrayList paises = contC.ListaPais();
+        clContinente continente = new clContinente();
+        ArrayList paises = null;
+        try {
+            paises = contC.BuscarContinente(continente);
+        } catch (SQLException ex) {
+            Logger.getLogger(CtrlclPais.class.getName()).log(Level.SEVERE, null, ex);
+        }
         Iterator<String> i = paises.iterator();
         while(i.hasNext()){
             frm.cmbContinente.addItem(i.next());
