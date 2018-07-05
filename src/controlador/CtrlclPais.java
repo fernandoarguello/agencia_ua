@@ -5,23 +5,25 @@
  */
 package controlador;
 
-import modelo.ConsultaContinente;
-import modelo.clContinente;
-import vista.frmContinente;
+
+import modelo.ConsultaPais;
+import modelo.clPais;
+import vista.frmPais;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
+
 /**
  *
- * @author Eduardo Giménez
+ * @author claud
  */
-public class CtrlclContinente implements ActionListener{
-    private clContinente cont;
-    private ConsultaContinente contC;
-    private frmContinente frm;
+public class CtrlclPais implements ActionListener{
+    private clPais cont;
+    private ConsultaPais contC;
+    private frmPais frm;
     
-    public CtrlclContinente(clContinente cont, ConsultaContinente contC, frmContinente frm){
+    public CtrlclPais(clPais cont, ConsultaPais contC, frmPais frm){
         this.cont = cont;
         this.contC = contC;
         this.frm = frm;
@@ -32,7 +34,7 @@ public class CtrlclContinente implements ActionListener{
     }
     
     public void iniciar(){
-        frm.setTitle("Continente");
+        frm.setTitle("Pais");
         frm.setLocationRelativeTo(null);
         frm.txtDescripcion.setVisible(false);
     }
@@ -83,7 +85,7 @@ public class CtrlclContinente implements ActionListener{
             
             if(contC.buscar(cont))
             {
-                this.cont.setIdContinente(cont.getIdContinente());
+                this.cont.setIdContinente(cont.getIdPais());
                 //frm.txtDescripcion.setText(cont.getDescripcion());
                 JOptionPane.showMessageDialog(null, "Registro Encontrado");
             } else {
@@ -97,4 +99,6 @@ public class CtrlclContinente implements ActionListener{
     {
         frm.txtDescripcion.setText(null);
     }
+
+   
 }

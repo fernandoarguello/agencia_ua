@@ -8,11 +8,15 @@ import vista.frmPrincipal;
 import vista.frmPaquete;
 import vista.frmGestionUsuario;
 import vista.frmCliente;
+import vista.frmCiudad;
 import vista.frmContinente;
+import vista.frmPais;
 import modelo.ConsultasCliente;
+import modelo.ConsultaCiudad;
 import modelo.clCliente;
 import modelo.ConsultaPais;
 import modelo.clPais;
+import modelo.clCiudad;
 import modelo.ConsultaContinente;
 import modelo.clContinente;
 import modelo.clUsuario;
@@ -39,14 +43,21 @@ public class CtrlMenuPrincipal implements ActionListener{
     public frmGestionUsuario GestionUsuario;
     public frmCliente cliente;
     public frmContinente continente;
+    public frmCiudad ciudad;
     public clCliente cli;
     public clContinente cCont;
+    public clPais pais;
+    public clCiudad ciu;
+    
     public CtrlMenuPrincipal(frmPrincipal menu){
         this.MenuPrincipal = menu;
         this.MenuPrincipal.jmiTratarPaquete.addActionListener(this);
         this.MenuPrincipal.jmiUsuario.addActionListener(this);
         this.MenuPrincipal.mnuitmCliente.addActionListener(this);
         this.MenuPrincipal.mnuitmContinente.addActionListener(this);
+        this.MenuPrincipal.mnuitmPais.addActionListener(this);
+        this.MenuPrincipal.mnuitmCiudad.addActionListener(this);
+        
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -59,6 +70,8 @@ public class CtrlMenuPrincipal implements ActionListener{
             clPais Pais = new clPais();
             ConsultaContinente Cont  = new ConsultaContinente();
             clContinente cCont = new clContinente();
+            ConsultaCiudad cCiudad = new ConsultaCiudad();
+            clCiudad ciu = new clCiudad();
             CtrlGestPaquete acciones = new CtrlGestPaquete(paq, ConClie, Clie, cPais, Pais, Cont, cCont);
             MenuPrincipal.jdpPrincipal.add(paq);
             
@@ -66,6 +79,7 @@ public class CtrlMenuPrincipal implements ActionListener{
         }else if(e.getSource() == MenuPrincipal.jmiUsuario){
             frmGestionUsuario GestUs = new frmGestionUsuario();
             ConsultaUsuarios ConsUsuarios = new ConsultaUsuarios();
+            
             clUsuario usuario = new clUsuario();
             CtrlGestUsuario gestUsuario = new CtrlGestUsuario(GestUs, usuario, ConsUsuarios);
             MenuPrincipal.jdpPrincipal.add(GestUs);
@@ -93,8 +107,27 @@ public class CtrlMenuPrincipal implements ActionListener{
             CtrlclContinente contC = new CtrlclContinente(Cont, ConCont, GesCont);
             MenuPrincipal.jdpPrincipal.add(GesCont);
             GesCont.setVisible(true);
+        }else if(e.getSource()== MenuPrincipal.mnuitmPais){
+            frmPais GesPais = new frmPais();
+            ConsultaPais Clpais = new ConsultaPais();
+            clPais pais = new clPais();
+            
+            
+            CtrlclPais contC = new CtrlclPais(pais, Clpais, GesPais);
+            MenuPrincipal.jdpPrincipal.add(GesPais);
+            GesPais.setVisible(true);
+        }
+        else if(e.getSource()== MenuPrincipal.mnuitmCiudad){
+            frmCiudad GesCiudad = new frmCiudad();
+            ConsultaCiudad ClCiudad = new ConsultaCiudad();
+            clCiudad ciu = new clCiudad();
+            
+            
+            CtrlclCiudad contC = new CtrlclCiudad(ciu, ClCiudad, GesCiudad);
+            MenuPrincipal.jdpPrincipal.add(GesCiudad);
+            GesCiudad.setVisible(true);
         }
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-}
+}    

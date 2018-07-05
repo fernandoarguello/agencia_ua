@@ -37,16 +37,16 @@ public class ConsultaContinente extends clConexion{
             }
         }
     }
-    public boolean modificar(clContinente cont) {
+    public boolean modificar(clContinente cont, String descripcion) {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE dbagencia.tblContinente SET descripcion=? where descripcion=?";
-
+        //String sql = "UPDATE dbagencia.tblContinente  where descripcion=?";
+        String sql = "Update dbagencia.tblcontinente set descripcion='"+descripcion+"' where idContinente = '"+cont.getIdContinente()+"';";
         try {
             ps = con.prepareStatement(sql);
             //ps.setInt(1, cont.getIdContinente());
-            ps.setString(1, cont.getDescripcion());
+            //ps.setString(1, cont.getDescripcion());
             ps.execute();
             return true;
         } catch (SQLException e) {

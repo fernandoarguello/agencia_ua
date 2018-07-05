@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+
 /**
  *
  * @author claud
@@ -41,11 +42,12 @@ public class ConsultaPais extends clConexion{
     }
     
 
- public boolean modificar(clPais pais) {
+ public boolean modificar(clPais pais, String descripcion) {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE dbagencia.tblpais SET idPais=?, idContinente=?, descripcion=?, nacionalidad=? WHERE id=? ";
+        //String sql = "UPDATE dbagencia.tblpais SET idPais=?, idContinente=?, descripcion=?, nacionalidad=? WHERE id=? ";
+        String sql = "Update dbagencia.tblpais set descripcion='"+descripcion+"' where idPais = '"+pais.getIdPais()+"';";
 
         try {
             ps = con.prepareStatement(sql);
@@ -122,11 +124,12 @@ public class ConsultaPais extends clConexion{
     }
  
     public ResultSet ObtieneIdPais(){
+        
         PreparedStatement ps = null;
         ResultSet    rs=null;
         java.sql.Connection con = getConexion();
         
-        String sql = "Select IdPais from dbagencia.tblPais where descripcion = ? ";
+        String sql = "Select idPais from dbagencia.tblPais where descripcion = ?";
         try{
             ps = con.prepareCall(sql);
             rs = ps.executeQuery();

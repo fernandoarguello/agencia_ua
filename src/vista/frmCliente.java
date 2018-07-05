@@ -108,6 +108,12 @@ public class frmCliente extends javax.swing.JInternalFrame {
             }
         });
 
+        cmbCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCiudadActionPerformed(evt);
+            }
+        });
+
         txtDocumento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDocumentoActionPerformed(evt);
@@ -293,6 +299,11 @@ public class frmCliente extends javax.swing.JInternalFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void cmbCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCiudadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbCiudadActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnEliminar;

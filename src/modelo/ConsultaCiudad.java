@@ -15,6 +15,8 @@ import java.sql.SQLException;
  * @author claud
  */
 public class ConsultaCiudad extends clConexion{
+    
+
       public boolean registrar(clCiudad ciu) {
         PreparedStatement ps = null;
         Connection con = getConexion();
@@ -38,11 +40,12 @@ public class ConsultaCiudad extends clConexion{
     }
     
 
- public boolean modificar(clCiudad ciu) {
+ public boolean modificar(clCiudad ciu, String descripcion) {
         PreparedStatement ps = null;
         Connection con = getConexion();
 
-        String sql = "UPDATE dbagencia.tblciudad SET idCiudad=?, idPais=?, descripcion=?,WHERE id=? ";
+        //String sql = "UPDATE dbagencia.tblciudad SET idCiudad=?, idPais=?, descripcion=?,WHERE id=? ";
+        String sql = "Update dbagencia.tblciudad set descripcion='"+descripcion+"' where idCiudad = '"+ciu.getIdCiudad()+"';";
 
         try {
             ps = con.prepareStatement(sql);
@@ -63,6 +66,8 @@ public class ConsultaCiudad extends clConexion{
         }
     }
  public boolean eliminar(clCiudad ciu) {
+     
+     
         PreparedStatement ps = null;
         java.sql.Connection con = getConexion();
 

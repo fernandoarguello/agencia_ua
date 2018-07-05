@@ -4,7 +4,6 @@ import modelo.ConsultasCliente;
 import modelo.clCliente;
 import vista.frmCliente;
 import modelo.ConsultaPais;
-import modelo.ConsultaCiudad;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -44,7 +43,17 @@ public class CtrlclCliente implements ActionListener{
         }catch(SQLException e){
                     System.err.println(e);
         }
-            
+        /*
+        ResultSet resB = conP.ObtieneIdPais();
+        try{
+            while (resB.next()){
+                frm.cmbCiudad.addItem(resB.getString("descripcion"));
+            }
+            this.conP.ObtieneIdPais().close();
+        }catch(SQLException e){
+                System.err.println(e);
+        }
+        */    
     }
 
     

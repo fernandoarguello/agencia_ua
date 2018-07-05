@@ -30,15 +30,18 @@ public class frmPais extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        bntInsertar = new javax.swing.JButton();
+        btnInsertar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        txtDescripcion = new javax.swing.JTextField();
 
+        setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
         setResizable(true);
+        setTitle("Paises");
+        setFrameIcon(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("Gestiòn de Paises");
@@ -46,16 +49,21 @@ public class frmPais extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel2.setText("Pais:");
 
-        bntInsertar.setText("Insertar");
-        bntInsertar.setActionCommand("btnInsertar");
-        bntInsertar.addActionListener(new java.awt.event.ActionListener() {
+        btnInsertar.setText("Insertar");
+        btnInsertar.setActionCommand("btnInsertar");
+        btnInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntInsertarActionPerformed(evt);
+                btnInsertarActionPerformed(evt);
             }
         });
 
         btnModificar.setText("Modificar");
         btnModificar.setActionCommand("btnModificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
         btnEliminar.setActionCommand("btnEliminar");
@@ -69,7 +77,7 @@ public class frmPais extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(bntInsertar)
+                .addComponent(btnInsertar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnModificar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -82,7 +90,7 @@ public class frmPais extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bntInsertar)
+                    .addComponent(btnInsertar)
                     .addComponent(btnModificar)
                     .addComponent(btnEliminar)
                     .addComponent(btnBuscar))
@@ -101,7 +109,7 @@ public class frmPais extends javax.swing.JInternalFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(63, 63, 63)))
@@ -114,7 +122,7 @@ public class frmPais extends javax.swing.JInternalFrame {
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -122,19 +130,26 @@ public class frmPais extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bntInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntInsertarActionPerformed
+    private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bntInsertarActionPerformed
+    }//GEN-LAST:event_btnInsertarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bntInsertar;
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnModificar;
+    public javax.swing.JButton btnBuscar;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnInsertar;
+    public javax.swing.JButton btnModificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField txtDescripcion;
     // End of variables declaration//GEN-END:variables
-}
+ public void setLocationRelativeTo(Object object) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+ }

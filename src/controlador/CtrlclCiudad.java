@@ -4,24 +4,24 @@
  * and open the template in the editor.
  */
 package controlador;
-
-import modelo.ConsultaContinente;
-import modelo.clContinente;
-import vista.frmContinente;
+import modelo.ConsultaCiudad;
+import modelo.clCiudad;
+import vista.frmCiudad;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import java.awt.event.ActionListener;
 
 /**
  *
- * @author Eduardo Giménez
+ * @author claud
  */
-public class CtrlclContinente implements ActionListener{
-    private clContinente cont;
-    private ConsultaContinente contC;
-    private frmContinente frm;
+public class CtrlclCiudad implements ActionListener{
+    private clCiudad cont;
+    private ConsultaCiudad contC;
+    private frmCiudad frm;
     
-    public CtrlclContinente(clContinente cont, ConsultaContinente contC, frmContinente frm){
+    public CtrlclCiudad(clCiudad cont, ConsultaCiudad contC, frmCiudad frm){
         this.cont = cont;
         this.contC = contC;
         this.frm = frm;
@@ -30,9 +30,13 @@ public class CtrlclContinente implements ActionListener{
         this.frm.btnEliminar.addActionListener(this);
         this.frm.btnBuscar.addActionListener(this);
     }
+
+//    CtrlclCiudad(clCiudad ciu, ConsultaCiudad ClCiudad, frmCiudad GesCiudad) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
     
     public void iniciar(){
-        frm.setTitle("Continente");
+        frm.setTitle("Ciudad");
         frm.setLocationRelativeTo(null);
         frm.txtDescripcion.setVisible(false);
     }
@@ -83,7 +87,7 @@ public class CtrlclContinente implements ActionListener{
             
             if(contC.buscar(cont))
             {
-                this.cont.setIdContinente(cont.getIdContinente());
+                this.cont.setIdContinente(cont.getIdPais());
                 //frm.txtDescripcion.setText(cont.getDescripcion());
                 JOptionPane.showMessageDialog(null, "Registro Encontrado");
             } else {
@@ -97,4 +101,6 @@ public class CtrlclContinente implements ActionListener{
     {
         frm.txtDescripcion.setText(null);
     }
+
+   
 }

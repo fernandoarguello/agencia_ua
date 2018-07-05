@@ -182,10 +182,10 @@ public class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu mnuMantenimiento;
     private javax.swing.JMenu mnuMenu;
     public javax.swing.JMenuBar mnuPrincipal;
-    private javax.swing.JMenuItem mnuitmCiudad;
+    public javax.swing.JMenuItem mnuitmCiudad;
     public javax.swing.JMenuItem mnuitmCliente;
     public javax.swing.JMenuItem mnuitmContinente;
-    private javax.swing.JMenuItem mnuitmPais;
+    public javax.swing.JMenuItem mnuitmPais;
     private javax.swing.JMenuItem mnuitmSalir;
     private javax.swing.JPopupMenu.Separator sprSeparador1;
     // End of variables declaration//GEN-END:variables
