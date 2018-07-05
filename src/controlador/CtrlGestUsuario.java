@@ -209,6 +209,6 @@ public class CtrlGestUsuario implements ActionListener{
         this.frmUsuario.txtCorreo.setText(null);
         this.frmUsuario.txtPassword.setText(null);
         this.frmUsuario.txtRepContrasenha.setText(null);
-        this.frmUsuario.txtUsuario.requestFocus();
+        this.frmUsuario.txtNombre.requestFocus();
     }
 }
