@@ -184,7 +184,7 @@ public class ConsultaPais extends clConexion{
         PreparedStatement ps = null;
         ResultSet         rs = null;
         com.mysql.jdbc.Connection con = getConexion();
-        String sql = "SELECT * FROM dbagencia.tblcontinente where descripcion = '" +Continente.getDescripcion()+"'";
+        String sql = "SELECT * FROM dbagencia.tblcontinente";
         ArrayList<String> pais = new ArrayList();
         try{
             ps = con.prepareStatement(sql);
