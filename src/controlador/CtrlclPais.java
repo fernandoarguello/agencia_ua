@@ -38,7 +38,9 @@ public class CtrlclPais implements ActionListener{
         frm.setLocationRelativeTo(null);
         frm.txtDescripcion.setVisible(false);
     }
-
+    public void CargarContinente(){
+        
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()== frm.btnInsertar){
