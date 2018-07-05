@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.JOptionPane;
 import vista.frmGestionUsuario;
 import modelo.clUsuario;
 import modelo.ConsultaUsuarios;
@@ -136,10 +137,26 @@ public class CtrlGestUsuario implements ActionListener{
         }
     };
     private void guardar(){
-        limpiar();
+        usuario.setIdUsuario(frmUsuario.txtUsuario.getText());
+        usuario.setNombre(frmUsuario.txtNombre.getText());
+        usuario.setApellido(frmUsuario.txtApellido.getText());
+        usuario.setCorreoElectronico(frmUsuario.txtCorreo.getText());
+        usuario.setPassword(frmUsuario.txtPassword.getText());
+        if(ConsUsuario.guardar(usuario)){
+            JOptionPane.showMessageDialog(null, "Registro Creado Exitosamente.");
+            limpiar();
+        }
+        
     }
     private void buscar(){
-        
+        usuario.setIdUsuario(frmUsuario.txtUsuario.getText());
+        if(ConsUsuario.buscar(usuario)){
+            frmUsuario.txtNombre.setText(usuario.getNombre());
+            frmUsuario.txtApellido.setText(usuario.getApellido());
+            frmUsuario.txtCorreo.setText(usuario.getCorreoElectronico());
+            frmUsuario.txtPassword.setText(usuario.getPassword());
+            frmUsuario.txtRepContrasenha.setText(usuario.getPassword());
+        }
     }
     private void eliminar(){
         limpiar();
