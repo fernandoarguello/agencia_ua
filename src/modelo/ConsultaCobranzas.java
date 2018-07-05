@@ -7,11 +7,30 @@ package modelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import com.mysql.jdbc.Connection;
+import java.sql.Date;
+import java.sql.SQLException;
 import modelo.clCobranza;
 /**
  *
  * @author farguello
  */
 public class ConsultaCobranzas extends clConexion{
-            
+    public boolean GuardarCobranza(clCobranza cobro){
+        PreparedStatement   ps = null;
+        com.mysql.jdbc.Connection con = getConexion();
+        
+        String sql = "Insert into dbagencia(idPaquete, MontoCobrado, FechaCobro) values (?,?,?)";
+        try{
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, cobro.getIdpaquete());
+            ps.setDouble(2, cobro.getMontoCobrado());
+            ps.setDate(1, Date.valueOf(cobro.getFechaCobro().toString()));
+            ps.execute();
+            return true;
+        }catch(SQLException e){
+            System.err.println(e);
+            return false;
+        }
+    }
+    
 }

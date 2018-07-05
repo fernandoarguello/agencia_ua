@@ -5,6 +5,8 @@
  */
 package modelo;
 
+import java.util.Date;
+
 /**
  *
  * @author farguello
@@ -13,6 +15,7 @@ public class clCobranza {
     private int id_cobranza;
     private int idpaquete;
     private double MontoCobrado;
+    private Date FechaCobro;
 
     public int getId_cobranza() {
         return id_cobranza;
@@ -36,6 +39,14 @@ public class clCobranza {
 
     public void setMontoCobrado(double MontoCobrado) {
         this.MontoCobrado = MontoCobrado;
+    }
+
+    public Date getFechaCobro() {
+        return FechaCobro;
+    }
+
+    public void setFechaCobro(Date FechaCobro) {
+        this.FechaCobro = FechaCobro;
     }
     
     
