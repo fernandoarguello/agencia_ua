@@ -26,7 +26,15 @@ public class CtrlGestUsuario implements ActionListener{
         this.usuario        = usuario;
         this.ConsUsuario    = ConsUsuario;
         this.frmUsuario.btnAgregar.addActionListener(this);
+        this.frmUsuario.btnBuscar.addActionListener(this);
+        this.frmUsuario.btnModificar.addActionListener(this);
+        this.frmUsuario.btnEliminar.addActionListener(this);
+        this.frmUsuario.btnCancelar.addActionListener(this);
         this.frmUsuario.btnAgregar.addKeyListener(cmdGuardar);
+        this.frmUsuario.btnBuscar.addKeyListener(cmdBuscar);
+        this.frmUsuario.btnModificar.addKeyListener(cmdModificar);
+        this.frmUsuario.btnEliminar.addKeyListener(cmdEliminar);
+        this.frmUsuario.btnCancelar.addKeyListener(cmdBuscar);
         this.frmUsuario.requestFocusInWindow();
         this.frmUsuario.requestFocus();
         this.frmUsuario.txtNombre.requestFocus();
@@ -54,7 +62,9 @@ public class CtrlGestUsuario implements ActionListener{
     KeyListener cmdGuardar = new KeyListener() {
         @Override
         public void keyTyped(KeyEvent e) {
-            guardar();
+            if(e.getKeyCode() == 0){
+                guardar();
+            }
             //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
 
@@ -71,7 +81,9 @@ public class CtrlGestUsuario implements ActionListener{
     KeyListener cmdBuscar = new KeyListener() {
         @Override
         public void keyTyped(KeyEvent e) {
-            buscar();
+            if(e.getKeyCode() == 0){
+                buscar();
+            }
             //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
 
@@ -88,13 +100,18 @@ public class CtrlGestUsuario implements ActionListener{
     KeyListener cmdEliminar = new KeyListener() {
         @Override
         public void keyTyped(KeyEvent e) {
-            eliminar();
+            if(e.getKeyCode()==0){
+                eliminar();
+            };
             //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
 
         @Override
         public void keyPressed(KeyEvent e) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            if(e.getKeyCode() == 0){
+                eliminar();
+            }
+            //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
 
         @Override
@@ -159,7 +176,16 @@ public class CtrlGestUsuario implements ActionListener{
         }
     }
     private void eliminar(){
-        limpiar();
+        usuario.setIdUsuario(frmUsuario.txtUsuario.getText());
+        frmUsuario.txtNombre.setText(usuario.getNombre());
+        frmUsuario.txtApellido.setText(usuario.getApellido());
+        frmUsuario.txtCorreo.setText(usuario.getCorreoElectronico());
+        frmUsuario.txtPassword.setText(usuario.getPassword());
+        frmUsuario.txtRepContrasenha.setText(usuario.getPassword());
+        if(ConsUsuario.eliminar(usuario)){
+            JOptionPane.showMessageDialog(null, "Registro Actualizado Correctamente");
+            limpiar();
+        }
     }
     private void modificar(){
         usuario.setIdUsuario(frmUsuario.txtUsuario.getText());

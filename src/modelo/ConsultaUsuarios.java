@@ -46,7 +46,7 @@ public class ConsultaUsuarios extends clConexion{
         ResultSet         rs = null;
         com.mysql.jdbc.Connection con = getConexion();
         
-        String sql = "DELETE * FROM dbagencia.tblusuario WHERE idusuario = ?";
+        String sql = "DELETE FROM dbagencia.tblusuario WHERE idusuario = ?";
         
         try{
             ps = con.prepareStatement(sql);
