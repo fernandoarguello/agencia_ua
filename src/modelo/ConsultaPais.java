@@ -191,8 +191,6 @@ public class ConsultaPais extends clConexion{
             rs = ps.executeQuery();
             
             while(rs.next()){
-                String lsPais = rs.getString(rs.getInt("IdContinente"));
-                pais.add(lsPais);
                 String lsDescripcion = rs.getString("descripcion");    
                 pais.add(lsDescripcion);
             }
