@@ -11,7 +11,10 @@ import modelo.clPais;
 import vista.frmPais;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
+import modelo.clContinente;
 
 
 /**
@@ -31,6 +34,7 @@ public class CtrlclPais implements ActionListener{
         this.frm.btnModificar.addActionListener(this);
         this.frm.btnEliminar.addActionListener(this);
         this.frm.btnBuscar.addActionListener(this);
+        CargarContinente();
     }
     
     public void iniciar(){
@@ -39,7 +43,12 @@ public class CtrlclPais implements ActionListener{
         frm.txtDescripcion.setVisible(false);
     }
     public void CargarContinente(){
-        
+
+        ArrayList paises = contC.ListaPais();
+        Iterator<String> i = paises.iterator();
+        while(i.hasNext()){
+            frm.cmbContinente.addItem(i.next());
+        }
     }
     @Override
     public void actionPerformed(ActionEvent e) {

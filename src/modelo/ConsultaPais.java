@@ -180,5 +180,29 @@ public class ConsultaPais extends clConexion{
         }
         return lista;
     }
+    public ArrayList BuscarContinente(clContinente Continente) throws SQLException{
+        PreparedStatement ps = null;
+        ResultSet         rs = null;
+        com.mysql.jdbc.Connection con = getConexion();
+        String sql = "SELECT * FROM dbagencia.tblcontinente where descripcion = '" +Continente.getDescripcion()+"'";
+        ArrayList<String> pais = new ArrayList();
+        try{
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                String lsPais = rs.getString(rs.getInt("IdContinente"));
+                pais.add(lsPais);
+                String lsDescripcion = rs.getString("descripcion");    
+                pais.add(lsDescripcion);
+            }
+        
+        }catch(SQLException e){
+            System.err.println(e);
+        }finally{
+            con.close();
+        }
+            return pais;
+    }
 }
 

@@ -99,8 +99,6 @@ public class frmPais extends javax.swing.JInternalFrame {
                     .addComponent(btnBuscar)))
         );
 
-        cmbContinente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
         jLabel3.setText("Continente:");
 
