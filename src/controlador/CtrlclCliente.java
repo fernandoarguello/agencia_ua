@@ -72,13 +72,13 @@ public class CtrlclCliente implements ActionListener{
         
         }else if(e.getSource()== frm.btnGrabar){
             cli.setIdCliente(Integer.parseInt(frm.txtIdCliente.getText()));
-            cli.setTipoDocumento(frm.cmbTipoDocumento.toString());
+            cli.setTipoDocumento(frm.cmbTipoDocumento.getItemListeners().toString());
             cli.setNombres(frm.txtNombres.getText());
             cli.setApellidos(frm.txtApellidos.getText());
             cli.setDireccion(frm.txtDireccion.getText());
             cli.setDescripcion(frm.cmbPais.getSelectedItem().toString());
             //cli.setIdPais(Integer.parseInt(frm.cmbPais.toString()));
-            cli.setCiudad(Integer.parseInt(frm.cmbCiudad.toString()));
+//            cli.setCiudad(Integer.parseInt(frm.cmbCiudad.toString()));
             cli.setTelefono(frm.txtTelefono.getText());
             cli.setMail(frm.txtEmail.getText());
             
