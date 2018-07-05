@@ -162,7 +162,16 @@ public class CtrlGestUsuario implements ActionListener{
         limpiar();
     }
     private void modificar(){
-        
+        usuario.setIdUsuario(frmUsuario.txtUsuario.getText());
+        frmUsuario.txtNombre.setText(usuario.getNombre());
+        frmUsuario.txtApellido.setText(usuario.getApellido());
+        frmUsuario.txtCorreo.setText(usuario.getCorreoElectronico());
+        frmUsuario.txtPassword.setText(usuario.getPassword());
+        frmUsuario.txtRepContrasenha.setText(usuario.getPassword());
+        if(ConsUsuario.modificar(usuario)){
+            JOptionPane.showMessageDialog(null, "Registro Actualizado Correctamente");
+            limpiar();
+        }
     }
     private void cancelar(){
         limpiar();
@@ -174,5 +183,6 @@ public class CtrlGestUsuario implements ActionListener{
         this.frmUsuario.txtCorreo.setText(null);
         this.frmUsuario.txtPassword.setText(null);
         this.frmUsuario.txtRepContrasenha.setText(null);
+        this.frmUsuario.txtUsuario.requestFocus();
     }
 }
