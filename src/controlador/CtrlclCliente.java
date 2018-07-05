@@ -72,7 +72,8 @@ public class CtrlclCliente implements ActionListener{
         
         }else if(e.getSource()== frm.btnGrabar){
             cli.setIdCliente(Integer.parseInt(frm.txtIdCliente.getText()));
-            cli.setTipoDocumento(frm.cmbTipoDocumento.getItemListeners().toString());
+            cli.setDocumento(frm.txtDocumento.getText());
+            cli.setTipoDocumento(frm.cmbTipoDocumento.getSelectedItem().toString());
             cli.setNombres(frm.txtNombres.getText());
             cli.setApellidos(frm.txtApellidos.getText());
             cli.setDireccion(frm.txtDireccion.getText());
