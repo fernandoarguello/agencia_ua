@@ -11,6 +11,7 @@ import vista.frmCliente;
 import vista.frmCiudad;
 import vista.frmContinente;
 import vista.frmPais;
+import vista.frmCobranza;
 import modelo.ConsultasCliente;
 import modelo.ConsultaCiudad;
 import modelo.clCliente;
@@ -21,6 +22,9 @@ import modelo.ConsultaContinente;
 import modelo.clContinente;
 import modelo.clUsuario;
 import modelo.ConsultaUsuarios;
+import modelo.ConsultaCobranzas;
+import modelo.clCobranza;
+import controlador.CtrlCobranzas;
 import controlador.CtrlGestPaquete;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -57,7 +61,7 @@ public class CtrlMenuPrincipal implements ActionListener{
         this.MenuPrincipal.mnuitmContinente.addActionListener(this);
         this.MenuPrincipal.mnuitmPais.addActionListener(this);
         this.MenuPrincipal.mnuitmCiudad.addActionListener(this);
-        
+        this.MenuPrincipal.jmiCobranza.addActionListener(this);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -79,7 +83,6 @@ public class CtrlMenuPrincipal implements ActionListener{
         }else if(e.getSource() == MenuPrincipal.jmiUsuario){
             frmGestionUsuario GestUs = new frmGestionUsuario();
             ConsultaUsuarios ConsUsuarios = new ConsultaUsuarios();
-            
             clUsuario usuario = new clUsuario();
             CtrlGestUsuario gestUsuario = new CtrlGestUsuario(GestUs, usuario, ConsUsuarios);
             MenuPrincipal.jdpPrincipal.add(GestUs);
@@ -126,6 +129,13 @@ public class CtrlMenuPrincipal implements ActionListener{
             CtrlclCiudad contC = new CtrlclCiudad(ciu, ClCiudad, GesCiudad);
             MenuPrincipal.jdpPrincipal.add(GesCiudad);
             GesCiudad.setVisible(true);
+        }else if(e.getSource() == MenuPrincipal.jmiCobranza){
+            frmCobranza GesCob = new frmCobranza();
+            ConsultaCobranzas ConsCobranza = new ConsultaCobranzas();
+            clCobranza clsCobranzas = new clCobranza();
+            CtrlCobranzas ctrlCobranzas = new CtrlCobranzas(GesCob, clsCobranzas, ConsCobranza);
+            MenuPrincipal.jdpPrincipal.add(GesCob);
+            GesCob.setVisible(true);
         }
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

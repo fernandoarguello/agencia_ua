@@ -39,6 +39,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         mnuitmContinente = new javax.swing.JMenuItem();
         mnuGestion = new javax.swing.JMenu();
         jmiTratarPaquete = new javax.swing.JMenuItem();
+        jmiCobranza = new javax.swing.JMenuItem();
         mnuAdministrar = new javax.swing.JMenu();
         jmiUsuario = new javax.swing.JMenuItem();
 
@@ -107,6 +108,14 @@ public class frmPrincipal extends javax.swing.JFrame {
         jmiTratarPaquete.setText("Tratar Paquete");
         mnuGestion.add(jmiTratarPaquete);
 
+        jmiCobranza.setText("Cobranzas");
+        jmiCobranza.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiCobranzaActionPerformed(evt);
+            }
+        });
+        mnuGestion.add(jmiCobranza);
+
         mnuPrincipal.add(mnuGestion);
 
         mnuAdministrar.setMnemonic('A');
@@ -137,6 +146,10 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void mnuitmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuitmSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_mnuitmSalirActionPerformed
+
+    private void jmiCobranzaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiCobranzaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmiCobranzaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,6 +188,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JDesktopPane jdpPrincipal;
+    public javax.swing.JMenuItem jmiCobranza;
     public javax.swing.JMenuItem jmiTratarPaquete;
     public javax.swing.JMenuItem jmiUsuario;
     private javax.swing.JMenu mnuAdministrar;

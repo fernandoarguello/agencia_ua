@@ -171,16 +171,17 @@ public class ConsultaPaquete extends clConexion{
     public boolean RegistrarPaquete(clPaquete paquete){
         PreparedStatement ps = null;
         Connection       con = getConexion();
-        String sql = "INSERT INTO dbagencia.tblpaquete(idAtractivo, FechaSalida, FechaRetorno, tblCliente_idCliente, estado, importe) values (?,?,?,?,?,?)";
+        String sql = "INSERT INTO dbagencia.tblpaquete(idCliente, idAtractivo, FechaSalida, FechaRetorno, estado, importe) values (?,?,?,?,?,?)";
         try{
             ps = con.prepareStatement(sql);
-            ps.setInt(1, paquete.getIdAtractivo());
-            ps.setDate(2, Date.valueOf(paquete.getFechaSalida().toString()));
-            ps.setDate(3, Date.valueOf(paquete.getFechaRetorno().toString()));
-            ps.setInt(4, paquete.getIdCliente());
+            ps.setInt(1, paquete.getIdCliente());
+            ps.setInt(2, paquete.getIdAtractivo());
+            ps.setDate(3, Date.valueOf(paquete.getFechaSalida().toString()));
+            ps.setDate(4, Date.valueOf(paquete.getFechaRetorno().toString()));
             ps.setBoolean(5, paquete.getEstado());
             ps.setDouble(6, paquete.getImporte());
             ps.execute();
+            JOptionPane.showMessageDialog(null, "Registro Insertado Correctamente!!!");
             return true;
         }catch(SQLException e){
             System.err.println(e);
@@ -188,7 +189,7 @@ public class ConsultaPaquete extends clConexion{
         }finally{
             try{
                 con.close();
-                JOptionPane.showMessageDialog(null, "Registro Insertado Correctamente!!!");
+               
             }catch(SQLException e){
                 System.err.println(e);
             }
