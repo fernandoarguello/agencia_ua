@@ -202,7 +202,6 @@ public class frmPaquete extends javax.swing.JInternalFrame {
 
         jLabel15.setText("Pais:");
 
-        cmbPais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paraguay" }));
         cmbPais.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbPaisItemStateChanged(evt);

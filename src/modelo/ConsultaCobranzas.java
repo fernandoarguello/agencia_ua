@@ -32,5 +32,10 @@ public class ConsultaCobranzas extends clConexion{
             return false;
         }
     }
+    public boolean BuscarCliente(clCliente cliente){
+        PreparedStatement  ps = null;
+        ResultSet          rs = null;
+        return false;
+    }
     
 }
