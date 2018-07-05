@@ -84,9 +84,7 @@ public class frmGestionUsuario extends javax.swing.JInternalFrame {
 
         btnCancelar.setText("Cancelar");
 
-        txtPassword.setText("jPasswordField1");
-
-        txtRepContrasenha.setText("jPasswordField1");
+        txtRepContrasenha.setToolTipText("");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
