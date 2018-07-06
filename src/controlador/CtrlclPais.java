@@ -11,6 +11,7 @@ import modelo.clPais;
 import vista.frmPais;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -62,10 +63,17 @@ public class CtrlclPais implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()== frm.btnInsertar){
-            
+            clContinente conti = new clContinente();
+            conti.setDescripcion(frm.cmbContinente.getSelectedItem().toString());
             cont.setDescripcion(frm.txtDescripcion.getText());
-            contC.buscar(cont);
-            
+            ResultSet rs = contC.ObtieneIdContinente(conti);
+            try {
+                while(rs.next()){
+                    cont.setIdContinente(rs.getInt("IdContinente"));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(CtrlclPais.class.getName()).log(Level.SEVERE, null, ex);
+            }
             
             if(contC.registrar(cont))
             {

@@ -202,5 +202,22 @@ public class ConsultaPais extends clConexion{
         }
             return pais;
     }
+     public ResultSet ObtieneIdContinente(clContinente continente){
+        
+        PreparedStatement ps = null;
+        ResultSet    rs  = null;
+        java.sql.Connection con = getConexion();
+        
+        String sql = "Select idContinente from dbagencia.tblContinente where descripcion = '"+continente.getDescripcion()+"'";
+        try{
+            ps = con.prepareCall(sql);
+            //ps.setString(1, continente.getDescripcion());
+            rs = ps.executeQuery();
+            return rs;
+        }catch (SQLException e){
+            System.err.println(e);
+            return rs;
+        }
+            }
 }
 
