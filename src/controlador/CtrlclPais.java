@@ -38,6 +38,7 @@ public class CtrlclPais implements ActionListener{
         this.frm.btnEliminar.addActionListener(this);
         this.frm.btnBuscar.addActionListener(this);
         CargarContinente();
+        this.frm.cmbContinente.setSelectedItem(null);
     }
     
     public void iniciar(){
@@ -61,8 +62,11 @@ public class CtrlclPais implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()== frm.btnInsertar){
+            
             cont.setDescripcion(frm.txtDescripcion.getText());
-                        
+            contC.buscar(cont);
+            
+            
             if(contC.registrar(cont))
             {
                 JOptionPane.showMessageDialog(null, "Registro Guardado");

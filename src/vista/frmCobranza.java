@@ -40,6 +40,8 @@ public class frmCobranza extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
 
+        setClosable(true);
+
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         txtApellido.setEditable(false);
